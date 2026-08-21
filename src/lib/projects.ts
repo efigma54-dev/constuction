@@ -55,9 +55,9 @@ export const projects: Project[] = [
     name: "Aakar Heights",
     location: "Baner, Pune",
     description:
-      "A premium residential project in Pune presented through a clear project record. Approved documents and dated construction updates will be added as they are verified.",
-    highlights: ["Premium 2 & 3 BHK", "Under construction", "Registration verification pending"],
-    status: "under_construction",
+      "A project record is being prepared for publication. Project details, approvals, commercial information, and dated construction updates will be added as they are verified.",
+    highlights: ["Project record", "Verification pending"],
+    status: "upcoming",
     handover: "Verification pending",
     priceBand: "Verification pending",
     rera: "Verification pending",
