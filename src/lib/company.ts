@@ -8,9 +8,9 @@ export const company = {
   email: "contact@aakardevelopers.com",
   registeredOffice: "Baner Road, Pune – 411045",
   identifiers: {
-    rera: "P52100000001",
-    cin: "U45200PN2000PTC000000",
-    gstin: "27AAAAA0000A1Z5",
+    rera: "Verification pending",
+    cin: "Verification pending",
+    gstin: "Verification pending",
   },
 } as const;
 
