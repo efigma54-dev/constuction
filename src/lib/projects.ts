@@ -47,15 +47,19 @@ export const projects: Project[] = [
   {
     slug: "aakar-balaji-empire",
     name: "Balaji Empire",
-    location: "Pimpri-Chinchwad, Pune, Maharashtra",
+    location: "Vikas Nagar, Dehu Road, Pune, Maharashtra",
     description:
-      "A completed residential development by AAKAR DEVELOPERS, registered under Maharashtra RERA as P52100001661. The public project record identifies 32 apartments across 1, 2 and 3 BHK configurations, with registration in 2017 and proposed completion in December 2018.",
-    highlights: ["32 residential apartments", "1, 2 & 3 BHK configurations", "31.70–59.83 sq m carpet areas", "MahaRERA registered"],
+      "A completed residential development by AAKAR DEVELOPERS, registered under Maharashtra RERA as P52100001661. Public project records identify 32 apartments across 1, 2 and 3 BHK configurations, with RERA registration in 2017 and a proposed completion date of 31 December 2018.",
+    highlights: ["32 residential apartments", "1, 2 & 3 BHK configurations", "341–644 sq ft published sizes", "MahaRERA registered"],
     status: "completed",
     handover: "Completed · 31 December 2018",
     priceBand: "Historical public listings vary; current sale availability is not represented here.",
     rera: "P52100001661",
-    heroImage: null,
+    heroImage:
+      "https://is1-3.housingcdn.com/4f2250e8/529671ac2127f19f26f860e2f281bfb5/v0/fs/aakar_balaji_empire-vikas_nagar_2-pune-aakar_developers.jpeg",
+    galleryImages: [
+      "https://is1-3.housingcdn.com/4f2250e8/529671ac2127f19f26f860e2f281bfb5/v0/fs/aakar_balaji_empire-vikas_nagar_2-pune-aakar_developers.jpeg",
+    ],
     proof: {
       existence: ["MahaRERA project record: P52100001661", "Project: BALAJI EMPIRE", "District: Pune · Taluka: Haveli"],
       delivery: ["RERA proposed completion: 31 December 2018", "Public property records list the project as completed / ready to move"],
