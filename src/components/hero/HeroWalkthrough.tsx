@@ -12,13 +12,11 @@ const subscribeToReducedMotion = (onChange: () => void) => {
   return () => mediaQuery.removeEventListener("change", onChange);
 };
 
-const getReducedMotion = () =>
-  window.matchMedia(reducedMotionQuery).matches;
-
+const getReducedMotion = () => window.matchMedia(reducedMotionQuery).matches;
 const getServerReducedMotion = () => false;
 
 export type WalkthroughShot = {
-  mp4Src: string;
+  mp4Src?: string;
   webmSrc?: string;
   posterSrc: string;
   label: string;
@@ -50,9 +48,9 @@ export default function HeroWalkthrough({
       aria-label="Building hero"
     >
       <div className="sticky top-0 relative h-screen w-full overflow-hidden">
-        {shots.map((shot, index) => (
+        {shots.map((shot) => (
           <div
-            key={`${shot.mp4Src}-${index}`}
+            key={shot.label}
             className="absolute inset-0"
             style={{
               zIndex: 0,
@@ -62,24 +60,23 @@ export default function HeroWalkthrough({
             }}
             aria-hidden="true"
           >
-            {!reducedMotion && (
+            {!reducedMotion && (shot.mp4Src || shot.webmSrc) ? (
               <video
                 className="absolute inset-0 h-full w-full object-cover"
                 autoPlay
                 loop
                 muted
                 playsInline
-                preload={index === 0 ? "auto" : "metadata"}
+                preload="metadata"
                 poster={shot.posterSrc}
                 aria-hidden="true"
               >
                 {shot.webmSrc ? (
                   <source src={shot.webmSrc} type="video/webm" />
                 ) : null}
-
-                <source src={shot.mp4Src} type="video/mp4" />
+                {shot.mp4Src ? <source src={shot.mp4Src} type="video/mp4" /> : null}
               </video>
-            )}
+            ) : null}
           </div>
         ))}
 
@@ -96,25 +93,13 @@ export default function HeroWalkthrough({
             <div className="shot-indicator">
               <span className="shot-indicator-dot" />
               {shots[0]?.label}
-              <span
-                style={{
-                  color: "rgba(255,255,255,0.35)",
-                  margin: "0 0.25rem",
-                }}
-              >
-                ·
-              </span>
-              <span style={{ color: "rgba(255,255,255,0.35)" }}>
-                1 / {shots.length}
-              </span>
+              <span style={{ color: "rgba(255,255,255,0.35)", margin: "0 0.25rem" }}>·</span>
+              <span style={{ color: "rgba(255,255,255,0.35)" }}>1 / {shots.length}</span>
             </div>
           </div>
         ) : null}
 
-        <div
-          className="absolute bottom-8 right-6 z-20 sm:right-8"
-          aria-hidden="true"
-        >
+        <div className="absolute bottom-8 right-6 z-20 sm:right-8" aria-hidden="true">
           <div
             style={{
               display: "flex",
@@ -129,14 +114,7 @@ export default function HeroWalkthrough({
           >
             <span>Scroll</span>
             <svg width="1" height="28" viewBox="0 0 1 28" fill="none">
-              <line
-                x1="0.5"
-                y1="0"
-                x2="0.5"
-                y2="28"
-                stroke="rgba(255,255,255,0.35)"
-                strokeWidth="1"
-              />
+              <line x1="0.5" y1="0" x2="0.5" y2="28" stroke="rgba(255,255,255,0.35)" strokeWidth="1" />
             </svg>
           </div>
         </div>
