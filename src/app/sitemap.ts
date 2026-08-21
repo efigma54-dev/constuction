@@ -5,7 +5,7 @@ import { stories } from "@/lib/stories";
 export default function sitemap(): MetadataRoute.Sitemap {
   const base =
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
-    "http://localhost:3000";
+    "https://constuction-eosin.vercel.app";
 
   const staticDate = new Date("2024-05-01T00:00:00Z");
 

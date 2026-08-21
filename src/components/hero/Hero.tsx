@@ -51,9 +51,9 @@ export default function Hero() {
               animationDelay: "160ms",
               maxWidth: "54ch",
             }}
-          >Every claim we makeâ€”progress, timelines, approvals, and
-           deliverablesâ€”has a visible trail. No hype. Just proof you canverify
-            before stepping on site.
+          >Every claim we make — progress, timelines, approvals, and
+            deliverables — has a visible trail. No hype. Just proof you can
+            verify before stepping on site.
           </p>
 
           {/* CTA row */}
