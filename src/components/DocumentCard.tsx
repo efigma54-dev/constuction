@@ -12,6 +12,7 @@ export default function DocumentCard({ document }: { document: Document }) {
           <PhotoPlaceholder
             type="document"
             label={document.title}
+            caption={available ? undefined : "Preview image · source document pending verification"}
             aspectRatio="video"
             src={document.previewImage ?? undefined}
           />
