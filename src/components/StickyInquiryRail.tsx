@@ -32,7 +32,7 @@ export default function StickyInquiryRail() {
     : null;
 
   return (
-    <div className="sticky-inquiry-rail" aria-label="Quick contact actions">
+    <div className="sticky-inquiry-rail is-visible" aria-label="Quick contact actions">
       {waLink ? (
         <a
           href={waLink}
