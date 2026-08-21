@@ -1,4 +1,20 @@
-export const company = {
+type CompanyIdentifiers = {
+  rera: string;
+  cin: string;
+  gstin: string;
+};
+
+export const company: {
+  name: string;
+  city: string;
+  state: string;
+  foundedYear: number | null;
+  phone: string | null;
+  whatsapp: string | null;
+  email: string | null;
+  registeredOffice: string | null;
+  identifiers: CompanyIdentifiers;
+} = {
   name: "Aakar Developers",
   city: "Pune",
   state: "Maharashtra",
@@ -12,6 +28,6 @@ export const company = {
     cin: "Verification pending",
     gstin: "Verification pending",
   },
-} as const;
+};
 
 export const verificationPending = "Verification pending";
