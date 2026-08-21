@@ -61,7 +61,7 @@ export default function AboutPage() {
                 tracker and document library on this site.
               </p>
               <div className="mt-4 text-xs uppercase tracking-widest text-terracotta">
-                Founded: verification pending
+                Founded: {company.foundedYear ?? "verification pending"}
               </div>
             </div>
             <div className="mt-8">
