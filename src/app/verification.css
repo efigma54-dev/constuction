@@ -1,4 +1,4 @@
-/* Keep unverified homepage metrics visibly honest until supporting records exist. */
+/* Keep unverified homepage metrics and project imagery visibly honest until supporting records exist. */
 main > .section-charcoal .mt-16 > div > div:first-child {
   font-size: 0 !important;
   line-height: 1.2 !important;
@@ -12,6 +12,26 @@ main > .section-charcoal .mt-16 > div > div:first-child::after {
   line-height: 1.15;
   letter-spacing: -0.02em;
   color: var(--sand);
+}
+
+/* The source page still contains a legacy "Currently developing" label.
+   Suppress it until the project status is supported by records. */
+main > .section-charcoal + section > div > div > div:first-child > div:last-child {
+  font-size: 0 !important;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+main > .section-charcoal + section > div > div > div:first-child > div:last-child::after {
+  content: "Reference visual · verification pending";
+  display: block;
+  background: var(--terracotta);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
 }
 
 @media (max-width: 639px) {
