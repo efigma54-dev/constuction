@@ -24,11 +24,7 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <main className="flex-1 bg-background">
-      {/* Page header */}
-      <div
-        className="bg-surface"
-        style={{ borderBottom: "1px solid var(--hairline)" }}
-      >
+      <div className="bg-surface" style={{ borderBottom: "1px solid var(--hairline)" }}>
         <div className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
           <h1
             className="font-serif text-foreground"
@@ -41,74 +37,52 @@ export default function AboutPage() {
             About Aakar
           </h1>
           <p className="mt-4 text-base leading-7 text-muted" style={{ maxWidth: "var(--max-prose)" }}>
-            Understated, specific, and verifiable — this page is for
-            credentials, track record, and the people accountable for delivery.
+            Understated, specific, and verifiable — this page is for credentials,
+            track record, and the people accountable for delivery.
           </p>
         </div>
       </div>
 
       <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
-        {/* Founder + credentials */}
         <div className="grid min-w-0 gap-0 lg:grid-cols-2">
-          <div
-            className="min-w-0 p-8 flex flex-col justify-between"
-            style={{ border: "1px solid var(--hairline)" }}
-          >
+          <div className="min-w-0 p-8 flex flex-col justify-between" style={{ border: "1px solid var(--hairline)" }}>
             <div>
-              <h2
-                className="font-serif text-foreground"
-                style={{
-                  fontSize: "var(--text-card)",
-                  lineHeight: "1.2",
-                  letterSpacing: "-0.01em",
-                }}
-              >
+              <h2 className="font-serif text-foreground" style={{ fontSize: "var(--text-card)", lineHeight: "1.2", letterSpacing: "-0.01em" }}>
                 Founder story
               </h2>
               <p className="mt-4 text-sm leading-7 text-muted" style={{ maxWidth: "var(--max-prose)" }}>
-                Aakar Developers is a Pune-focused residential development
-                practice founded in {company.foundedYear}. Company history,
-                completed-project records, and delivery metrics will be
-                published here after they are verified.
+                Aakar Developers is presented here as a Pune-focused residential
+                development practice. Company history, completed-project records,
+                and delivery metrics will be published after they are verified.
               </p>
               <p className="mt-4 text-sm leading-7 text-muted" style={{ maxWidth: "var(--max-prose)" }}>
                 The founding principle: buyers should be able to verify every
-                claim before committing. That shaped everything from the
-                construction tracker to the document library on this site.
+                claim before committing. That principle shapes the construction
+                tracker and document library on this site.
               </p>
+              <div className="mt-4 text-xs uppercase tracking-widest text-terracotta">
+                Founded: verification pending
+              </div>
             </div>
             <div className="mt-8">
               <PhotoPlaceholder
                 type="building"
-                label="Company project imagery"
+                label="Company project reference visual"
+                caption="Reference visual · not construction evidence"
                 aspectRatio="video"
                 src="/images/about/about-founder-project.jpg"
               />
             </div>
           </div>
 
-          <div
-            className="min-w-0 p-8 flex flex-col justify-between"
-            style={{ border: "1px solid var(--hairline)", marginLeft: "-1px" }}
-          >
+          <div className="min-w-0 p-8 flex flex-col justify-between" style={{ border: "1px solid var(--hairline)", marginLeft: "-1px" }}>
             <div>
-              <h2
-                className="font-serif text-foreground"
-                style={{
-                  fontSize: "var(--text-card)",
-                  lineHeight: "1.2",
-                  letterSpacing: "-0.01em",
-                }}
-              >
+              <h2 className="font-serif text-foreground" style={{ fontSize: "var(--text-card)", lineHeight: "1.2", letterSpacing: "-0.01em" }}>
                 Credentials
               </h2>
               <ul className="mt-4 space-y-3 text-sm text-muted">
                 {credentials.map((c) => (
-                  <li
-                    key={c}
-                    className="pb-3"
-                    style={{ borderBottom: "1px solid var(--hairline)" }}
-                  >
+                  <li key={c} className="pb-3" style={{ borderBottom: "1px solid var(--hairline)" }}>
                     {c}
                   </li>
                 ))}
@@ -117,7 +91,8 @@ export default function AboutPage() {
             <div className="mt-8">
               <PhotoPlaceholder
                 type="document"
-                label="Company credentials"
+                label="Company credentials reference visual"
+                caption="Reference visual · source records pending"
                 aspectRatio="video"
                 src="/images/about/about-credentials-document.jpg"
               />
@@ -125,19 +100,8 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* People — driven by src/lib/team.ts */}
-        <div
-          className="mt-0 p-8"
-          style={{ border: "1px solid var(--hairline)", borderTop: "none" }}
-        >
-          <h2
-            className="font-serif text-foreground"
-            style={{
-              fontSize: "var(--text-card)",
-              lineHeight: "1.2",
-              letterSpacing: "-0.01em",
-            }}
-          >
+        <div className="mt-0 p-8" style={{ border: "1px solid var(--hairline)", borderTop: "none" }}>
+          <h2 className="font-serif text-foreground" style={{ fontSize: "var(--text-card)", lineHeight: "1.2", letterSpacing: "-0.01em" }}>
             People
           </h2>
           <p className="mt-3 text-sm leading-6 text-muted">
@@ -149,20 +113,11 @@ export default function AboutPage() {
               <div className="p-6 sm:col-span-2 lg:col-span-3" style={{ border: "1px solid var(--hairline)" }}>
                 <div className="text-sm font-medium text-foreground">Team profiles pending verification.</div>
                 <p className="mt-2 text-sm leading-6 text-muted">
-                  Approved biographies and professional photographs will be
-                  published here when available.
+                  Approved biographies and professional photographs will be published here when available.
                 </p>
               </div>
             ) : team.map((p, i) => (
-              <div
-                key={p.role}
-                className="min-w-0 p-6"
-                style={{
-                  border: "1px solid var(--hairline)",
-                  marginLeft: i % 3 > 0 ? "-1px" : undefined,
-                }}
-              >
-                {/* Approved portraits are used when supplied. */}
+              <div key={p.role} className="min-w-0 p-6" style={{ border: "1px solid var(--hairline)", marginLeft: i % 3 > 0 ? "-1px" : undefined }}>
                 <div className="w-full mb-5">
                   <PhotoPlaceholder
                     type="portrait"
@@ -171,18 +126,9 @@ export default function AboutPage() {
                     src={p.photo ?? undefined}
                   />
                 </div>
-                <div className="text-xs font-semibold uppercase tracking-widest text-terracotta">
-                  {p.role}
-                </div>
-                <div
-                  className="mt-2 font-serif text-foreground"
-                  style={{ fontSize: "1.125rem", letterSpacing: "-0.01em" }}
-                >
-                  {p.name}
-                </div>
-                <div className="mt-3 text-sm text-muted leading-relaxed">
-                  {p.bio}
-                </div>
+                <div className="text-xs font-semibold uppercase tracking-widest text-terracotta">{p.role}</div>
+                <div className="mt-2 font-serif text-foreground" style={{ fontSize: "1.125rem", letterSpacing: "-0.01em" }}>{p.name}</div>
+                <div className="mt-3 text-sm text-muted leading-relaxed">{p.bio}</div>
               </div>
             ))}
           </div>
