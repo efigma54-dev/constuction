@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { company } from "@/lib/company";
 import HeroWalkthrough from "./HeroWalkthrough";
 
 const shots = [
@@ -17,7 +16,7 @@ export default function Hero() {
         <div className="pointer-events-none absolute inset-0 z-20 flex flex-col justify-end">
           <div className="pointer-events-auto mx-auto w-full max-w-6xl px-4 pb-20 sm:px-6">
             <p className="text-xs font-medium tracking-widest uppercase animate-fade-in-up" style={{ color: "rgba(234, 227, 217, 0.65)" }}>
-              Pune-based construction & real estate · Est. {company.foundedYear}
+              Pune-based construction & real estate · Company record pending verification
             </p>
 
             <h1 className="font-serif text-white animate-fade-in-up" style={{ fontSize: "var(--text-hero)", lineHeight: "0.93", letterSpacing: "-0.03em", animationDelay: "80ms", marginTop: "clamp(0.75rem, 1.5vw, 1.25rem)" }}>
@@ -58,8 +57,8 @@ export default function Hero() {
 }
 
 const stats = [
-  { label: "Founded", value: "2013" },
-  { label: "Published project", value: "1" },
+  { label: "Company record", value: "Pending" },
+  { label: "Published projects", value: "0" },
   { label: "Verified stories", value: "0" },
   { label: "Regulatory status", value: "Pending verification", variant: "badge" },
 ];
