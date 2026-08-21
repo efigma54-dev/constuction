@@ -9,13 +9,10 @@ type Props = {
   label: string;
   className?: string;
   aspectRatio?: "video" | "square" | "portrait" | "auto";
-  /**
-   * Optional real image path (e.g. "/images/team/rajesh-aakar.jpg").
-   * If provided, renders an optimized Next.js <Image>.
-   * If null/undefined, falls back to an intentional media-pending state.
-   * No manual toggling needed — just populate this prop from your data file.
-   */
+  /** Optional approved/supplied image path. */
   src?: string | null;
+  /** Optional visible caption for supplied media, useful for reference visuals. */
+  caption?: string;
 };
 
 export default function PhotoPlaceholder({
@@ -24,8 +21,8 @@ export default function PhotoPlaceholder({
   className = "",
   aspectRatio = "video",
   src,
+  caption,
 }: Props) {
-  // Map aspect ratios to CSS classes
   const ratioClass = {
     video: "aspect-[16/9]",
     square: "aspect-square",
@@ -33,7 +30,6 @@ export default function PhotoPlaceholder({
     auto: "h-full w-full",
   }[aspectRatio];
 
-  // If a real image path is supplied, render the optimised Next.js Image
   if (src) {
     return (
       <div
@@ -47,11 +43,15 @@ export default function PhotoPlaceholder({
           className="object-cover"
           sizes="(max-width: 768px) 100vw, 50vw"
         />
+        {caption ? (
+          <div className="absolute inset-x-0 bottom-0 z-10 bg-charcoal/85 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-sand">
+            {caption}
+          </div>
+        ) : null}
       </div>
     );
   }
 
-  // Keep missing media explicit rather than implying that a reference image is real evidence.
   return (
     <div
       className={`relative w-full overflow-hidden flex flex-col justify-between p-4 group select-none ${ratioClass} ${className}`}
@@ -60,7 +60,6 @@ export default function PhotoPlaceholder({
         border: "1px solid var(--hairline)",
       }}
     >
-      {/* Visual grain background simulation / layout context */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.03]"
         style={{
@@ -69,13 +68,11 @@ export default function PhotoPlaceholder({
         }}
       />
 
-      {/* Decorative hairline grid corners */}
       <div className="absolute top-2 left-2 w-1.5 h-1.5 border-t border-l border-foreground/20" />
       <div className="absolute top-2 right-2 w-1.5 h-1.5 border-t border-r border-foreground/20" />
       <div className="absolute bottom-2 left-2 w-1.5 h-1.5 border-b border-l border-foreground/20" />
       <div className="absolute bottom-2 right-2 w-1.5 h-1.5 border-b border-r border-foreground/20" />
 
-      {/* Silhouette SVG Icon */}
       <div className="flex-1 flex items-center justify-center text-terracotta/40">
         {type === "building" && (
           <svg className="w-10 h-10" fill="none" stroke="currentColor" strokeWidth="1.2" viewBox="0 0 24 24">
@@ -94,7 +91,6 @@ export default function PhotoPlaceholder({
         )}
       </div>
 
-      {/* Label/Caption */}
       <div className="z-10 bg-background/90 backdrop-blur-[2px] p-2 text-center" style={{ border: "1px solid var(--hairline)" }}>
         <div className="text-[10px] font-semibold uppercase tracking-widest text-terracotta">
           <PendingVerificationPulse>Media pending verification</PendingVerificationPulse>
