@@ -365,7 +365,7 @@ body {
 /* ── Dramatic stat counter ─────────────────────────────── */
 .stat-drama {
   font-family: var(--font-aakar-serif);
-  font-size: clamp(4rem, 8vw, 7rem);
+  font-size: clamp(2.25rem, 4vw, 3.75rem);
   line-height: 0.9;
   letter-spacing: -0.04em;
   font-weight: 400;
