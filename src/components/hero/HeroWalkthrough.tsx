@@ -83,7 +83,6 @@ export default function HeroWalkthrough({
           </div>
         ))}
 
-        {/* Gradient overlay */}
         <div
           className="pointer-events-none absolute inset-0 z-10"
           style={{
@@ -92,31 +91,29 @@ export default function HeroWalkthrough({
           }}
         />
 
-        {/* Shot indicator */}
-        <div className="absolute bottom-8 left-6 z-20 sm:left-8">
-          <div className="shot-indicator">
-            <span className="shot-indicator-dot" />
-            {shots[0]?.label}
-            <span
-              style={{
-                color: "rgba(255,255,255,0.35)",
-                margin: "0 0.25rem",
-              }}
-            >
-              ·
-            </span>
-            <span style={{ color: "rgba(255,255,255,0.35)" }}>
-              1 / {shots.length}
-            </span>
+        {shots.length > 1 ? (
+          <div className="absolute bottom-8 left-6 z-20 sm:left-8" aria-label="Hero visual selector">
+            <div className="shot-indicator">
+              <span className="shot-indicator-dot" />
+              {shots[0]?.label}
+              <span
+                style={{
+                  color: "rgba(255,255,255,0.35)",
+                  margin: "0 0.25rem",
+                }}
+              >
+                ·
+              </span>
+              <span style={{ color: "rgba(255,255,255,0.35)" }}>
+                1 / {shots.length}
+              </span>
+            </div>
           </div>
-        </div>
+        ) : null}
 
-        {/* Scroll hint */}
         <div
           className="absolute bottom-8 right-6 z-20 sm:right-8"
-          style={{
-            opacity: 1,
-          }}
+          aria-hidden="true"
         >
           <div
             style={{
