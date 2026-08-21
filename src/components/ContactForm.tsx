@@ -1,9 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import type { FormEvent } from "react";
 
 type FormState = "idle" | "submitting" | "success" | "error";
 type Errors = Partial<Record<"name" | "phone" | "email", string>>;
+
+type InputMode = "none" | "text" | "decimal" | "numeric" | "tel" | "search" | "email" | "url";
 
 function normalizePhone(value: string) {
   return value.replace(/[^\d]/g, "");
@@ -31,7 +34,7 @@ export default function ContactForm() {
   const [errors, setErrors] = useState<Errors>({});
   const [formTs] = useState(() => String(Date.now()));
 
-  async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setMessage(null);
     setErrors({});
@@ -184,7 +187,7 @@ function Field({
   maxLength?: number;
   error?: string;
   autoComplete?: string;
-  inputMode?: React.HTMLAttributes<HTMLInputElement>["inputMode"];
+  inputMode?: InputMode;
 }) {
   return (
     <div>
