@@ -22,6 +22,9 @@
 ───────────────────────────────────────────────────────── */
 
 :root {
+  --font-aakar-sans: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-aakar-serif: "Georgia", "Times New Roman", serif;
+
   /* Brand palette */
   --background: #F5F2EC;
   --foreground: #17211F;
@@ -366,6 +369,29 @@ body {
   line-height: 0.9;
   letter-spacing: -0.04em;
   font-weight: 400;
+}
+.stat-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: clamp(2.8rem, 4vw, 4.25rem);
+  padding: 0.6rem 1rem 0.5rem;
+  border: 1px solid rgba(255,255,255,0.22);
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  font-family: var(--font-aakar-serif);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+}
+.stat-badge-mark {
+  font-size: 0.8em;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-0.04em);
 }
 .stat-drama-label {
   font-size: 0.6875rem;

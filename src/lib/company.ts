@@ -2,6 +2,7 @@ export const company = {
   name: "Aakar Developers",
   city: "Pune",
   state: "Maharashtra",
+  foundedYear: 2013,
   phone: "+91 98765 43210",
   whatsapp: "+91 98765 43210",
   email: "contact@aakardevelopers.com",

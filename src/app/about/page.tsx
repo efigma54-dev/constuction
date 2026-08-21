@@ -1,4 +1,5 @@
 import PhotoPlaceholder from "@/components/PhotoPlaceholder";
+import { company } from "@/lib/company";
 import { team } from "@/lib/team";
 
 export const metadata = {
@@ -66,9 +67,9 @@ export default function AboutPage() {
               </h2>
               <p className="mt-4 text-sm leading-7 text-muted" style={{ maxWidth: "var(--max-prose)" }}>
                 Aakar Developers is a Pune-focused residential development
-                practice. Company history, completed-project records, and
-                delivery metrics will be published here after they are
-                verified.
+                practice founded in {company.foundedYear}. Company history,
+                completed-project records, and delivery metrics will be
+                published here after they are verified.
               </p>
               <p className="mt-4 text-sm leading-7 text-muted" style={{ maxWidth: "var(--max-prose)" }}>
                 The founding principle: buyers should be able to verify every

@@ -21,7 +21,7 @@ export const team: TeamMember[] = [
     slug: "rajesh-aakar",
     role: "Founder & Managing Director",
     name: "Rajesh Aakar",
-    bio: "With over two decades in Pune real estate, Rajesh oversees all land acquisition and project vision. His core philosophy drives Aakar's transparency-first approach.",
+    bio: "Rajesh founded Aakar in 2013 and continues to steer land acquisition, project vision, and the firm's transparency-first operating philosophy.",
     photo: "/images/team/rajesh-aakar.jpg",
   },
   {

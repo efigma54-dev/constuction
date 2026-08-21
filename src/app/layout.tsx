@@ -1,20 +1,8 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Outfit } from "next/font/google";
 import "./globals.css";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import StickyInquiryRail from "@/components/StickyInquiryRail";
-
-const fontSans = Outfit({
-  variable: "--font-aakar-sans",
-  subsets: ["latin"],
-});
-
-const fontSerif = Cormorant_Garamond({
-  variable: "--font-aakar-serif",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
@@ -47,10 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${fontSans.variable} ${fontSerif.variable} h-full antialiased`}
-    >
+    <html lang="en" className="h-full antialiased">
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <SiteHeader />
         <div className="flex-1 flex flex-col">{children}</div>

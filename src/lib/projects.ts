@@ -52,7 +52,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "aakar-heights-baner",
-    name: "Aakar Heights, Baner",
+    name: "Aakar Heights",
     location: "Baner, Pune",
     description: "A premium residential project in Pune presented through a clear project record. Approved documents and dated construction updates will be added as they are verified.",
     highlights: ["Premium 2 & 3 BHK", "Under construction", "MahaRERA Registered"],

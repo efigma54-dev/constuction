@@ -78,7 +78,7 @@ export default function Home() {
               >
                 {/* Connector down to next item */}
                 {i !== pillars.length - 1 && (
-                  <div className="hidden sm:flex absolute left-[3.25rem] -bottom-6 w-px h-6 items-center justify-center" style={{ background: "var(--hairline)", zIndex: 0 }}>
+                  <div className="hidden sm:flex absolute left-13 -bottom-6 w-px h-6 items-center justify-center" style={{ background: "var(--hairline)", zIndex: 0 }}>
                     <div className="w-1.5 h-1.5 rounded-full opacity-40 transition-all duration-300 group-hover:scale-150 group-hover:opacity-100" style={{ backgroundColor: "var(--terracotta)" }}></div>
                   </div>
                 )}
@@ -133,7 +133,7 @@ export default function Home() {
 
                 {/* Evidence Label */}
                 <div 
-                  className="sm:w-48 shrink-0 mt-6 sm:mt-0 flex flex-col transition-opacity duration-300 sm:opacity-70 sm:group-hover:opacity-100 w-full sm:w-auto"
+                  className="sm:w-48 shrink-0 mt-6 sm:mt-0 flex flex-col transition-opacity duration-300 sm:opacity-70 sm:group-hover:opacity-100 w-full"
                 >
                   <div className="mb-5 w-full h-24">
                     <PhotoPlaceholder type={p.thumbnailType as "building" | "document" | "portrait"} label={p.evidence} className="w-full h-full" aspectRatio="auto" src={p.image} />
@@ -264,7 +264,7 @@ export default function Home() {
             <div className="relative min-h-80 md:min-h-130 overflow-hidden flex flex-col justify-end">
               <PhotoPlaceholder
                 type="building"
-                label="Aakar Heights - Baner (Featured Project)"
+                label="Aakar Heights (Featured Project)"
                 aspectRatio="auto"
                 className="absolute inset-0 h-full w-full border-none!"
                 src={featured?.heroImage ?? "/images/generated/aakar-heights-hero.svg"}
@@ -302,7 +302,7 @@ export default function Home() {
                   letterSpacing: "-0.01em",
                 }}
               >
-                {featured ? featured.name : "Aakar Heights, Baner"}
+                {featured ? featured.name : "Aakar Heights"}
               </h3>
               <p className="mt-4 text-base leading-relaxed text-muted prose-constrained">
                 {featured ? (

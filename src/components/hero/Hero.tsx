@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { company } from "@/lib/company";
 import HeroWalkthrough from "./HeroWalkthrough";
 
 const shots = [
@@ -21,7 +22,7 @@ export default function Hero() {
             className="text-xs font-medium tracking-widest uppercase animate-fade-in-up opacity-0"
             style={{ color: "rgba(234, 227, 217, 0.65)" }}
           >
-            Pune-based construction &amp; real estate · Est. 2012
+            Pune-based construction & real estate · Est. {company.foundedYear}
           </p>
 
           {/* ── HERO WORD ── */}
@@ -50,9 +51,8 @@ export default function Hero() {
               animationDelay: "160ms",
               maxWidth: "54ch",
             }}
-          >
-            Every claim we make—progress, timelines, approvals, and
-            deliverables—has a visible trail. No hype. Just proof you can verify
+          >Every claim we makeâ€”progress, timelines, approvals, and
+           deliverablesâ€”has a visible trail. No hype. Just proof you canverify
             before stepping on site.
           </p>
 
@@ -69,9 +69,9 @@ export default function Hero() {
             </Link>
           </div>
 
-          {/* Stat bar — dramatic numbers at editorial scale */}
+          {/* Stat bar — supporting proof metrics, with the legal status treated as a compact badge */}
           <div
-            className="mt-14 grid grid-cols-2 sm:grid-cols-4 animate-fade-in-up opacity-0"
+            className="mt-14 grid grid-cols-2 gap-y-8 sm:grid-cols-4 animate-fade-in-up opacity-0"
             style={{
               animationDelay: "340ms",
               borderTop: "1px solid rgba(255,255,255,0.1)",
@@ -80,12 +80,19 @@ export default function Hero() {
             {stats.map((s, i) => (
               <div
                 key={s.label}
-                className="pt-6 pr-6"
+                className="pt-6 pr-0 sm:pr-6"
                 style={{ borderRight: i < 3 ? "1px solid rgba(255,255,255,0.07)" : "none" }}
               >
-                <div className="stat-drama" style={{ color: "#fff" }}>
-                  {s.value}
-                </div>
+                {s.variant === "badge" ? (
+                  <div className="stat-badge" aria-label={s.label}>
+                    <span className="stat-badge-mark" aria-hidden="true">✓</span>
+                    <span>{s.value}</span>
+                  </div>
+                ) : (
+                  <div className="stat-drama" style={{ color: "#fff" }}>
+                    {s.value}
+                  </div>
+                )}
                 <div className="stat-drama-label" style={{ color: "rgba(213,200,181,0.55)" }}>
                   {s.label}
                 </div>
@@ -103,5 +110,5 @@ const stats = [
   { label: "Years in Pune", value: "12+" },
   { label: "Projects delivered", value: "18" },
   { label: "Families housed", value: "740+" },
-  { label: "MahaRERA registered", value: "Yes" },
+  { label: "MahaRERA registered", value: "Yes", variant: "badge" },
 ];
