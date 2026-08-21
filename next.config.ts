@@ -5,10 +5,15 @@ const nextConfig: NextConfig = {
     // Allow SVG files served from the same origin (e.g. /posters/*.svg)
     // Required if Next.js <Image> is ever used with an SVG src.
     dangerouslyAllowSVG: true,
-    // Images used in the page must remain renderable by <img>; downloads can
-    // still be initiated explicitly from document links.
     contentDispositionType: "inline",
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "is1-3.housingcdn.com",
+        pathname: "/**",
+      },
+    ],
   },
 };
 
