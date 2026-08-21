@@ -1,0 +1,21 @@
+/* Keep unverified homepage metrics visibly honest until supporting records exist. */
+main > .section-charcoal .mt-16 > div > div:first-child {
+  font-size: 0 !important;
+  line-height: 1.2 !important;
+}
+
+main > .section-charcoal .mt-16 > div > div:first-child::after {
+  content: "Verification pending";
+  display: block;
+  font-family: var(--font-aakar-serif);
+  font-size: clamp(1.35rem, 2.2vw, 2rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--sand);
+}
+
+@media (max-width: 639px) {
+  main > .section-charcoal .mt-16 > div > div:first-child {
+    padding-right: 0;
+  }
+}
