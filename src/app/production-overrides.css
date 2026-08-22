@@ -1,0 +1,10 @@
+/* Production QA overrides: keep unsupported claims and stale project-status labels out of the rendered homepage. */
+main > section.section-charcoal > div > div.mt-16.grid.grid-cols-3 {
+  display: none;
+}
+
+/* The featured project is a completed Balaji Empire record. The old status chip is hidden
+   until page-level copy can be safely updated in source. */
+main > section:nth-of-type(4) > div > div > div:first-child > div:last-child {
+  display: none;
+}
