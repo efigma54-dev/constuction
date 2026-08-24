@@ -7,6 +7,10 @@ export type Story = {
   summary: string;
   proof: string[];
   photo?: string | null;
+  image?: string | null;
+  location?: string;
+  title?: string;
+  excerpt?: string;
 };
 
 // Client stories are intentionally withheld until client approval and supporting evidence are available.
