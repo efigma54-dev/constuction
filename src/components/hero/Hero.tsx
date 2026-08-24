@@ -6,6 +6,7 @@ const balajiEmpirePhoto =
 
 const shots = [
   {
+    mp4Src: "/videos/hero-tower.mp4",
     posterSrc: balajiEmpirePhoto,
     label: "Balaji Empire · published project photograph",
   },
@@ -20,22 +21,16 @@ export default function Hero() {
             <p className="text-xs font-medium tracking-widest uppercase animate-fade-in-up" style={{ color: "rgba(234, 227, 217, 0.65)" }}>
               Pune-based real estate · public company records available
             </p>
-
             <h1 className="font-serif text-white animate-fade-in-up" style={{ fontSize: "var(--text-hero)", lineHeight: "0.93", letterSpacing: "-0.03em", animationDelay: "80ms", marginTop: "clamp(0.75rem, 1.5vw, 1.25rem)" }}>
-              Built on trust.
-              <br />
-              <span style={{ color: "rgba(234, 227, 217, 0.8)" }}>Delivered with proof.</span>
+              Built on trust.<br /><span style={{ color: "rgba(234, 227, 217, 0.8)" }}>Delivered with proof.</span>
             </h1>
-
             <p className="mt-6 text-base leading-relaxed animate-fade-in-up prose-constrained" style={{ color: "rgba(213, 200, 181, 0.85)", animationDelay: "160ms", maxWidth: "54ch" }}>
               A Pune developer with public company and project records, presented with clear distinctions between verified facts, sourced imagery, and information still awaiting primary documentation.
             </p>
-
             <div className="mt-10 flex flex-wrap gap-4 animate-fade-in-up" style={{ animationDelay: "240ms" }}>
               <Link href="/projects" className="btn-primary">View projects</Link>
               <Link href="/transparency" className="btn-hero-outline">Company records</Link>
             </div>
-
             <div className="mt-14 grid grid-cols-2 gap-y-8 sm:grid-cols-4 animate-fade-in-up" style={{ animationDelay: "340ms", borderTop: "1px solid rgba(255,255,255,0.1)" }}>
               {stats.map((s, i) => (
                 <div key={s.label} className="pt-6 pr-0 sm:pr-6" style={{ borderRight: i < 3 ? "1px solid rgba(255,255,255,0.07)" : "none" }}>
@@ -44,7 +39,6 @@ export default function Hero() {
                 </div>
               ))}
             </div>
-
             <div className="mt-4 text-[10px] font-semibold uppercase tracking-[0.14em]" style={{ color: "rgba(213,200,181,0.45)" }}>
               Photograph source: Housing.com · Balaji Empire, Vikas Nagar, Pune
             </div>
