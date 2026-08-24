@@ -6,28 +6,37 @@ import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import StickyInquiryRail from "@/components/StickyInquiryRail";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://constuction-eosin.vercel.app";
+const featuredProjectImage =
+  "https://is1-3.housingcdn.com/4f2250e8/529671ac2127f19f26f860e2f281bfb5/v0/fs/aakar_balaji_empire-vikas_nagar_2-pune-aakar_developers.jpeg";
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://constuction-eosin.vercel.app"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Aakar Developers",
     template: "%s · Aakar Developers",
   },
   description:
-    "Pune residential development presented with clear project records, construction updates, and verified documents.",
+    "Aakar Developers, Pune. Explore publicly documented project records, construction history, and verification material before you book.",
   openGraph: {
     type: "website",
     siteName: "Aakar Developers",
-    title: "Aakar Developers",
+    title: "Aakar Developers · Balaji Empire",
     description:
-      "Pune residential development presented with clear project records, construction updates, and verified documents.",
-    images: ["/posters/hero-tower-poster.svg"],
+      "Aakar Developers, Pune. Explore publicly documented project records, construction history, and verification material before you book.",
+    images: [
+      {
+        url: featuredProjectImage,
+        alt: "Published Balaji Empire project photograph · source: Housing.com",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aakar Developers",
+    title: "Aakar Developers · Balaji Empire",
     description:
-      "Pune residential development presented with clear project records, construction updates, and verified documents.",
-    images: ["/posters/hero-tower-poster.svg"],
+      "Aakar Developers, Pune. Explore publicly documented project records, construction history, and verification material before you book.",
+    images: [featuredProjectImage],
   },
 };
 
