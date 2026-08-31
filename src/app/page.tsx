@@ -107,7 +107,7 @@ export default function Home() {
         <div className="mx-auto w-full max-w-6xl animate-fade-in-up opacity-0" style={{ borderBottom: "1px solid var(--hairline)" }}>
           <div className="grid md:grid-cols-[55%_45%]">
             <div className="relative min-h-80 md:min-h-130 overflow-hidden flex flex-col justify-end">
-              <PhotoPlaceholder type="building" label={featured?.name ?? "Balaji Empire"} caption="Published project photograph · Housing.com" aspectRatio="auto" className="absolute inset-0 h-full w-full border-none!" src={featured?.heroImage ?? undefined} />
+              <PhotoPlaceholder type="building" label={featured?.name ?? "Balaji Empire"} aspectRatio="auto" className="absolute inset-0 h-full w-full border-none!" src={featured?.heroImage ?? undefined} />
               <div className="absolute bottom-0 left-0 z-10" style={{ background: "var(--terracotta)", color: "#fff", fontSize: "0.65rem", fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", padding: "0.5rem 1rem" }}>
                 {featured?.status === "completed" ? "Completed · public record" : "Project record"}
               </div>
@@ -146,5 +146,5 @@ const pillars = [
   { num: "02", title: "Progress", body: "Construction milestones are presented with dates and supporting records when published.", evidence: "Milestone record", thumbnailType: "building", image: "/images/trust-pillars/proof-of-existence.jpeg", icon: "progress" },
   { num: "03", title: "Delivery", body: "Published project information stays separate from claims that still require primary verification.", evidence: "Project record", thumbnailType: "building", image: "/images/trust-pillars/proof-of-delivery.jpeg", icon: "delivery" },
   { num: "04", title: "Documents", body: "The document library distinguishes available records from materials awaiting verification.", evidence: "Document library", thumbnailType: "document", image: "/images/trust-pillars/proof-of-legitimacy.jpeg", icon: "documents" },
-  { num: "05", title: "Accountability", body: "People and professional information are published only when the underlying record is ready to support it.", evidence: "People & credentials", thumbnailType: "portrait", image: "/images/about/about-credentials-document.jpg", icon: "accountability" },
+  { num: "05", title: "Accountability", body: "People and professional information are published only when the underlying record is ready to support it.", evidence: "People & credentials", thumbnailType: "portrait", image: "/images/trust-pillars/proof-of-people.jpeg", icon: "accountability" },
 ];
