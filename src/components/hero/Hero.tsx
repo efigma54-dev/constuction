@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { projects } from "@/lib/projects";
 import HeroWalkthrough from "./HeroWalkthrough";
 
 const localArchitecturalVisual =
@@ -51,7 +52,7 @@ export default function Hero() {
 
 const stats = [
   { label: "Established", value: "2010" },
-  { label: "Public portfolio records", value: "11" },
-  { label: "Published RERA record", value: "01" },
-  { label: "GST registration", value: "2017" },
+  { label: "Published project records", value: String(projects.length) },
+  { label: "RERA-registered project", value: "1" },
+  { label: "GST since", value: "2017" },
 ];
