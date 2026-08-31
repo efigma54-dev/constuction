@@ -25,6 +25,8 @@ export const company = {
 } as const;
 
 export const verificationPending = "Verification pending";
+export const publishedProjectRecordsLabel = "Public project records";
+export const registeredReraLabel = "Registered RERA project";
 
 export const companySources = [
   {
