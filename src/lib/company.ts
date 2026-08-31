@@ -13,7 +13,7 @@ export const company = {
   establishedYear: 2010,
   gstRegistrationDate: "01 July 2017",
   principalPlaceOfBusiness: "Flat No. 9, Fourth Floor, Paud Road, Kothrud, Pune, Maharashtra 411038",
-  publicPortfolioCount: 11,
+  publicPortfolioCount: 4,
   identifiers: {
     gstin: "27AAPFA6311D1ZP",
     rera: "P52100001661",
@@ -25,8 +25,8 @@ export const company = {
 } as const;
 
 export const verificationPending = "Verification pending";
-export const publishedProjectRecordsLabel = "Public project records";
-export const registeredReraLabel = "Registered RERA project";
+export const publishedProjectRecordsLabel = "Published project records";
+export const registeredReraLabel = "RERA-registered project";
 
 export const companySources = [
   {
