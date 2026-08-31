@@ -17,31 +17,29 @@ export type MediaItem = {
   sourceLabel?: string;
 };
 
-const balajiEmpirePhoto =
-  "https://is1-3.housingcdn.com/4f2250e8/529671ac2127f19f26f860e2f281bfb5/v0/fs/aakar_balaji_empire-vikas_nagar_2-pune-aakar_developers.jpeg";
+const localArchitecturalVisual =
+  "/images/generated/Modern_residential_apartment_bui…_2K_202608151424.jpeg";
 
 export const media: MediaItem[] = [
   {
-    src: balajiEmpirePhoto,
-    alt: "Balaji Empire residential building in Vikas Nagar, Pune, with the project name displayed on the facade",
-    title: "Balaji Empire · exterior photograph",
+    src: localArchitecturalVisual,
+    alt: "Architectural visualization of a contemporary residential apartment building",
+    title: "Balaji Empire · architectural reference visual",
     category: "hero",
     projectId: "aakar-balaji-empire",
-    verified: true,
-    sourceType: "verified",
-    sourceUrl: "https://housing.com/in/buy/projects/page/117415-aakar-balaji-empire-by-aakar-developers-in-vikas-nagar",
-    sourceLabel: "Housing.com project gallery",
+    verified: false,
+    sourceType: "architectural-visualization",
+    sourceLabel: "Architectural visualization · not project evidence",
   },
   {
-    src: balajiEmpirePhoto,
-    alt: "Published exterior photograph of Balaji Empire in Vikas Nagar, Pune",
-    title: "Balaji Empire · published project image",
+    src: localArchitecturalVisual,
+    alt: "Architectural visualization used for residential project context",
+    title: "Residential architectural reference",
     category: "gallery",
     projectId: "aakar-balaji-empire",
-    verified: true,
-    sourceType: "verified",
-    sourceUrl: "https://housing.com/in/buy/projects/page/117415-aakar-balaji-empire-by-aakar-developers-in-vikas-nagar",
-    sourceLabel: "Housing.com project gallery",
+    verified: false,
+    sourceType: "architectural-visualization",
+    sourceLabel: "Architectural visualization · not project evidence",
   },
   {
     src: "/images/real/aakar-heights-reference.jpg",
