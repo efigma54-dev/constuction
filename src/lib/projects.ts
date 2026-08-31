@@ -55,10 +55,9 @@ export const projects: Project[] = [
     handover: "Completed · 31 December 2018",
     priceBand: "Historical public listings vary; current sale availability is not represented here.",
     rera: "P52100001661",
-    heroImage:
-      "https://is1-3.housingcdn.com/4f2250e8/529671ac2127f19f26f860e2f281bfb5/v0/fs/aakar_balaji_empire-vikas_nagar_2-pune-aakar_developers.jpeg",
+    heroImage: "/images/generated/Modern_residential_apartment_bui…_2K_202608151424.jpeg",
     galleryImages: [
-      "https://is1-3.housingcdn.com/4f2250e8/529671ac2127f19f26f860e2f281bfb5/v0/fs/aakar_balaji_empire-vikas_nagar_2-pune-aakar_developers.jpeg",
+      "/images/generated/Modern_residential_apartment_bui…_2K_202608151424.jpeg",
     ],
     proof: {
       existence: ["MahaRERA project record: P52100001661", "Project: BALAJI EMPIRE", "District: Pune · Taluka: Haveli"],
