@@ -26,7 +26,8 @@ const stages = [
 ] as const;
 
 export default function ConstructionProgressPage() {
-  const publishedProjects = projects.filter((p) => p.status === "under_construction" && p.milestones.length > 0);
+  const liveProjects = projects.filter((p) => p.status === "under_construction" && p.milestones.length > 0);
+  const completedRecords = projects.filter((p) => p.status === "completed" && p.milestones.length > 0);
 
   return (
     <main className="flex-1 bg-background">
@@ -45,13 +46,13 @@ export default function ConstructionProgressPage() {
       </header>
 
       <section className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-        {publishedProjects.length > 0 ? (
+        {liveProjects.length > 0 ? (
           <div className="space-y-16">
-            {publishedProjects.map((project) => (
+            {liveProjects.map((project) => (
               <section key={project.slug} className="border-t border-[var(--hairline)] pt-10">
                 <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-terracotta">Published project</p>
+                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-terracotta">Active project</p>
                     <h2 className="mt-3 font-serif text-foreground text-3xl">{project.name}</h2>
                     <p className="mt-2 text-sm text-muted">{project.location}</p>
                   </div>
@@ -75,7 +76,49 @@ export default function ConstructionProgressPage() {
               </section>
             ))}
           </div>
-        ) : (
+        ) : null}
+
+        {completedRecords.length > 0 ? (
+          <section className={liveProjects.length > 0 ? "mt-20 border-t border-[var(--hairline)] pt-12" : ""}>
+            <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-terracotta">Completed project records</p>
+                <h2 className="mt-3 font-serif text-3xl text-foreground">Published historical milestones</h2>
+                <p className="mt-3 max-w-2xl text-sm leading-6 text-muted">
+                  These records describe completed projects and historical dates. They are not presented as a live construction schedule.
+                </p>
+              </div>
+            </div>
+            <div className="mt-10 space-y-10">
+              {completedRecords.map((project) => (
+                <article key={project.slug} className="border border-[var(--hairline)] bg-surface p-6 sm:p-8">
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.16em] text-terracotta">Completed · public record</p>
+                      <h3 className="mt-2 font-serif text-2xl text-foreground">{project.name}</h3>
+                      <p className="mt-1 text-sm text-muted">{project.location}</p>
+                    </div>
+                    <Link href={`/projects/${project.slug}`} className="btn-secondary self-start">View evidence</Link>
+                  </div>
+                  <div className="mt-8 grid gap-0 border-t border-[var(--hairline)] sm:grid-cols-2">
+                    {project.milestones.map((milestone) => (
+                      <div key={milestone.stage} className="border-b border-[var(--hairline)] p-5 sm:[&:nth-child(odd)]:border-r">
+                        <div className="text-xs font-semibold uppercase tracking-widest text-terracotta">{milestone.stage}</div>
+                        <div className="mt-3 grid gap-1 text-sm">
+                          <div className="text-foreground">Recorded: {milestone.actualDate}</div>
+                          <div className="text-muted">Public record date: {milestone.promisedDate}</div>
+                        </div>
+                        <p className="mt-3 text-xs leading-5 text-muted">{milestone.detail}</p>
+                      </div>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {liveProjects.length === 0 && completedRecords.length === 0 ? (
           <div className="mx-auto max-w-5xl">
             <div className="grid gap-px overflow-hidden border border-[var(--hairline)] bg-[var(--hairline)] sm:grid-cols-5">
               {stages.map(([number, title]) => (
@@ -99,7 +142,7 @@ export default function ConstructionProgressPage() {
               </div>
             </div>
           </div>
-        )}
+        ) : null}
       </section>
     </main>
   );
