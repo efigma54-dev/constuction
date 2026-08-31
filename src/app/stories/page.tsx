@@ -1,24 +1,24 @@
 import Link from "next/link";
 import { stories } from "@/lib/stories";
-import PhotoPlaceholder from "@/components/PhotoPlaceholder";
+import StoriesShowcase from "@/components/StoriesShowcase";
 
 const socialImage = "/images/generated/Modern_residential_apartment_bui…_2K_202608151424.jpeg";
 
 export const metadata = {
   title: "Stories",
   description:
-    "Aakar Developers customer stories are published only after consent and supporting evidence are available.",
+    "Public-source stories from Aakar Developers projects, presented with source context, real illustrative photography, and multilingual editions.",
   openGraph: {
     title: "Stories · Aakar Developers",
     description:
-      "Customer stories are published only after consent and supporting evidence are available.",
+      "Public-source project stories with source context and multilingual editions.",
     images: [socialImage],
   },
   twitter: {
     card: "summary_large_image",
     title: "Stories · Aakar Developers",
     description:
-      "Customer stories are published only after consent and supporting evidence are available.",
+      "Public-source project stories with source context and multilingual editions.",
     images: [socialImage],
   },
 };
@@ -33,53 +33,23 @@ export default function StoriesPage() {
             Stories
           </h1>
           <p className="mt-5 text-base leading-7 text-muted" style={{ maxWidth: "var(--max-prose)" }}>
-            Approved project case studies are published only after client consent and supporting evidence are available.
+            Seven language editions of public-source project stories. We separate sourced observations from client testimonials, and we never present an illustrative photograph as a customer or project photograph.
           </p>
         </div>
       </div>
 
       <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
-        {stories.length === 0 ? (
-          <div className="relative overflow-hidden border border-[var(--hairline)] bg-surface p-8 sm:p-12">
-            <div className="absolute inset-y-0 left-0 w-1 bg-[var(--terracotta)]" />
-            <div className="max-w-2xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-terracotta">Stories on hold</p>
-              <h2 className="mt-4 font-serif text-3xl text-foreground sm:text-4xl">Evidence before publication.</h2>
-              <p className="mt-4 text-base leading-7 text-muted">
-                No customer story is currently published. This keeps names, photographs, quotations, and project details off the site until the required consent and supporting records are ready.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Link href="/transparency" className="btn-secondary">See verification standards</Link>
-                <Link href="/contact" className="btn-primary">Ask about a project</Link>
-              </div>
-            </div>
+        <StoriesShowcase stories={stories} />
+
+        <div className="mt-12 flex flex-col gap-5 border border-[var(--hairline)] bg-surface p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+          <div>
+            <div className="text-xs font-semibold uppercase tracking-[0.14em] text-terracotta">Want a verified customer story?</div>
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-muted">
+              We can publish a named customer story only after written consent, a usable photograph, and supporting project records are available.
+            </p>
           </div>
-        ) : (
-          <div className="grid gap-0 sm:grid-cols-2 lg:grid-cols-3">
-            {stories.map((s, i) => (
-              <Link
-                key={s.slug}
-                href={`/stories/${s.slug}`}
-                className="group flex flex-col p-8 transition-colors hover:bg-surface"
-                style={{
-                  border: "1px solid var(--hairline)",
-                  marginLeft: i % 3 > 0 ? "-1px" : undefined,
-                  marginTop: i >= 3 ? "-1px" : undefined,
-                }}
-              >
-                <div className="mb-6 w-full">
-                  <PhotoPlaceholder type="building" label={`Handover - ${s.name}`} aspectRatio="video" src={s.photo ?? undefined} />
-                </div>
-                <div className="font-serif text-foreground group-hover:text-terracotta transition-colors" style={{ fontSize: "var(--text-card)", lineHeight: "1.2", letterSpacing: "-0.01em" }}>
-                  {s.headline}
-                </div>
-                <div className="mt-4 text-xs font-semibold uppercase tracking-widest text-muted">{s.name} · {s.project} · {s.unit}</div>
-                <div className="mt-6 flex-1 text-sm leading-relaxed text-muted" style={{ maxWidth: "var(--max-prose)" }}>{s.summary}</div>
-                <div className="mt-6 btn-secondary self-start" style={{ fontSize: "0.75rem" }}>Read story</div>
-              </Link>
-            ))}
-          </div>
-        )}
+          <Link href="/contact" className="btn-primary shrink-0">Submit a story</Link>
+        </div>
       </div>
     </main>
   );
