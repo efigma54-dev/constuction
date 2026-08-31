@@ -2,22 +2,24 @@ import Link from "next/link";
 import { stories } from "@/lib/stories";
 import PhotoPlaceholder from "@/components/PhotoPlaceholder";
 
+const socialImage = "/images/generated/Modern_residential_apartment_bui…_2K_202608151424.jpeg";
+
 export const metadata = {
   title: "Stories",
   description:
-    "Full case studies, with real names and unit numbers. No generic quotes.",
+    "Aakar Developers customer stories are published only after consent and supporting evidence are available.",
   openGraph: {
     title: "Stories · Aakar Developers",
     description:
-      "Full case studies, with real names and unit numbers. No generic quotes.",
-    images: ["/posters/hero-tower-poster.svg"],
+      "Customer stories are published only after consent and supporting evidence are available.",
+    images: [socialImage],
   },
   twitter: {
     card: "summary_large_image",
     title: "Stories · Aakar Developers",
     description:
-      "Full case studies, with real names and unit numbers. No generic quotes.",
-    images: ["/posters/hero-tower-poster.svg"],
+      "Customer stories are published only after consent and supporting evidence are available.",
+    images: [socialImage],
   },
 };
 
