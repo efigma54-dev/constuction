@@ -1,7 +1,9 @@
 import Link from "next/link";
-import { company } from "@/lib/company";
+import { company, verificationPending } from "@/lib/company";
 
 export default function SiteFooter() {
+  const cin = company.identifiers.cin ?? verificationPending;
+
   return (
     <footer className="bg-background py-16 sm:py-24" style={{ borderTop: "1px solid var(--hairline)" }}>
       <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
@@ -19,7 +21,7 @@ export default function SiteFooter() {
             <div className="text-xs font-semibold uppercase tracking-widest text-terracotta">Legitimacy</div>
             <ul className="space-y-3 text-muted">
               <li>RERA: {company.identifiers.rera}</li>
-              <li>CIN: {company.identifiers.cin}</li>
+              <li>CIN: {cin}</li>
               <li>GSTIN: {company.identifiers.gstin}</li>
               <li>Registered office: Verification pending</li>
             </ul>
