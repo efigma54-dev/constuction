@@ -2,11 +2,9 @@
   "name": "aakar-web",
   "version": "0.1.0",
   "private": true,
-  "config": {
-    "allow-scripts": {
-      "sharp": true,
-      "unrs-resolver": true
-    }
+  "allowScripts": {
+    "sharp": true,
+    "unrs-resolver": true
   },
   "scripts": {
     "dev": "next dev",
