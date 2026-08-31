@@ -1,14 +1,14 @@
 import Link from "next/link";
 import HeroWalkthrough from "./HeroWalkthrough";
 
-const balajiEmpirePhoto =
-  "https://is1-3.housingcdn.com/4f2250e8/529671ac2127f19f26f860e2f281bfb5/v0/fs/aakar_balaji_empire-vikas_nagar_2-pune-aakar_developers.jpeg";
+const localArchitecturalVisual =
+  "/images/generated/Modern_residential_apartment_bui…_2K_202608151424.jpeg";
 
 const shots = [
   {
     mp4Src: "/videos/hero-tower.mp4",
-    posterSrc: balajiEmpirePhoto,
-    label: "Balaji Empire · published project photograph",
+    posterSrc: localArchitecturalVisual,
+    label: "Residential architectural reference visual",
   },
 ];
 
@@ -40,7 +40,7 @@ export default function Hero() {
               ))}
             </div>
             <div className="mt-4 text-[10px] font-semibold uppercase tracking-[0.14em]" style={{ color: "rgba(213,200,181,0.45)" }}>
-              Photograph source: Housing.com · Balaji Empire, Vikas Nagar, Pune
+              Reference visual · architectural visualization · not project evidence
             </div>
           </div>
         </div>
@@ -51,7 +51,7 @@ export default function Hero() {
 
 const stats = [
   { label: "Established", value: "2010" },
-  { label: "Public portfolio", value: "11" },
-  { label: "Verified RERA record", value: "01" },
+  { label: "Public portfolio records", value: "11" },
+  { label: "Published RERA record", value: "01" },
   { label: "GST registration", value: "2017" },
 ];
