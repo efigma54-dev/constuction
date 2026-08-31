@@ -7,7 +7,7 @@ import FivePillarsIconAccent from "@/components/FivePillarsIconAccent";
 import PendingVerificationPulse from "@/components/PendingVerificationPulse";
 
 export const metadata = {
-  title: "Home",
+  title: "Aakar Developers · Pune",
   description:
     "Aakar Developers, Pune. Explore published project records, construction information, and company documentation.",
   openGraph: {
@@ -19,7 +19,7 @@ export const metadata = {
         url: "/images/generated/Modern_residential_apartment_bui…_2K_202608151424.jpeg",
         width: 1200,
         height: 630,
-        alt: "Aakar Developers residential architecture",
+        alt: "Aakar Developers residential architecture reference visual",
       },
     ],
   },
@@ -37,6 +37,7 @@ export default function Home() {
   const active = projects.filter((p) => p.status === "under_construction");
   const publishedProgress = active.filter((p) => p.milestones.length > 0);
   const featuredStories = stories.slice(0, 3);
+  const publishedProjectCount = projects.length;
 
   return (
     <main className="flex-1">
@@ -89,8 +90,8 @@ export default function Home() {
           <div className="mt-16 grid grid-cols-3 animate-fade-in-up opacity-0" style={{ animationDelay: "160ms", borderTop: "1px solid rgba(200, 189, 179, 0.15)" }}>
             {[
               { label: "Established", value: "2010" },
-              { label: "Published portfolio records", value: "11" },
-              { label: "Published RERA record", value: "01" },
+              { label: "Published project records", value: String(publishedProjectCount) },
+              { label: "RERA-registered project", value: "1" },
             ].map((s, i) => (
               <div key={s.label} className="pt-8 pr-8" style={{ borderRight: i < 2 ? "1px solid rgba(200, 189, 179, 0.1)" : "none" }}>
                 <div className="font-serif" style={{ fontSize: "clamp(2rem, 4.5vw, 4rem)", lineHeight: "1", letterSpacing: "-0.02em", color: "var(--sand)" }}>{s.value}</div>
@@ -105,7 +106,7 @@ export default function Home() {
         <div className="mx-auto w-full max-w-6xl animate-fade-in-up opacity-0" style={{ borderBottom: "1px solid var(--hairline)" }}>
           <div className="grid md:grid-cols-[55%_45%]">
             <div className="relative min-h-80 md:min-h-130 overflow-hidden flex flex-col justify-end">
-              <PhotoPlaceholder type="building" label={featured?.name ?? "Featured project"} aspectRatio="auto" className="absolute inset-0 h-full w-full border-none!" src={featured?.heroImage ?? undefined} />
+              <PhotoPlaceholder type="building" label={featured ? `${featured.name} · architectural reference visual` : "Featured project · architectural reference visual"} aspectRatio="auto" className="absolute inset-0 h-full w-full border-none!" src={featured?.heroImage ?? undefined} />
               <div className="absolute bottom-0 left-0 z-10" style={{ background: "var(--terracotta)", color: "#fff", fontSize: "0.65rem", fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", padding: "0.5rem 1rem" }}>
                 {featured?.status === "completed" ? "Completed · public record" : "Project record"}
               </div>
