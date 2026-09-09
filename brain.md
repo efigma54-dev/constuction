@@ -10,7 +10,7 @@ _Last verified: 9 September 2026_
 - Production deployment: Vercel project `construction`
 - Production alias currently used in QA: `https://constuction-eosin.vercel.app`
 - GitHub `main` is connected to Vercel production.
-- A new production deployment is queued after the latest source changes; final live verification remains pending until that deployment is Ready.
+- A new production deployment is triggered by the latest hero-media fix; final live verification remains pending until that deployment is Ready.
 - Local build previously completed successfully with `next build` after rebuilding `sharp` and `unrs-resolver`.
 - npm lifecycle scripts are enabled with `ignore-scripts=false`; `sharp` and `unrs-resolver` are installed and rebuilt successfully.
 - `package.json` uses the npm install-script allowlist for `sharp` and `unrs-resolver`.
@@ -38,9 +38,10 @@ _Last verified: 9 September 2026_
 ## Hero / interaction requirements
 
 - Keep the hero video. Do not replace or remove it during visual cleanup.
+- The hero previously rendered a poster/background layer underneath the video at the same time. This has been removed: motion mode now uses one video layer with its poster, while reduced-motion mode uses one local `next/image` layer. This removes the duplicate media compositing that could produce visible ghosting/desynchronization.
+- The hero no longer uses scroll-linked media animation. Background/video and content layers remain independently stable while the hero section uses normal sticky positioning.
+- Reduced-motion detection uses `useSyncExternalStore` with a server snapshot to avoid hydration mismatches.
 - Preserve responsive behavior on narrow viewports.
-- Avoid scroll-linked animation implementations that can desynchronise video/background and text layers.
-- Respect reduced-motion preferences without hydration mismatches.
 
 ## Metadata hardening
 
@@ -61,7 +62,8 @@ _Last verified: 9 September 2026_
 8. No blank legal identifier fields may render.
 9. No invented testimonials, customer names, quotations, or project evidence.
 10. RERA proposed dates must not be presented as actual verified completion dates.
-11. After deployment, re-fetch production pages and verify the deployed commit rather than relying only on a local report.
+11. Hero media must not render duplicate poster/background and video layers simultaneously.
+12. After deployment, re-fetch production pages and verify the deployed commit rather than relying only on a local report.
 
 ## Remaining work policy
 
