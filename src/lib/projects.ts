@@ -58,7 +58,7 @@ export const projects: Project[] = [
     description: "A completed residential development by AAKAR DEVELOPERS, registered under Maharashtra RERA as P52100001661. Public project records identify 32 apartments across 1, 2 and 3 BHK configurations, with RERA registration in 2017 and a proposed completion date of 31 December 2018.",
     highlights: ["32 residential apartments", "1, 2 & 3 BHK configurations", "341–644 sq ft published sizes", "MahaRERA registered"],
     status: "completed",
-    handover: "Completed · 31 December 2018",
+    handover: "Completed · public records; completion date not independently verified",
     priceBand: "Historical public listings vary; current sale availability is not represented here.",
     rera: "P52100001661",
     heroImage: premiumVisuals.empire,
@@ -81,7 +81,7 @@ export const projects: Project[] = [
     },
     milestones: [
       { stage: "RERA registration", promisedDate: "29 July 2017", actualDate: "29 July 2017", status: "done", photos: [], detail: "Public RERA records list the project registration date as 29 July 2017." },
-      { stage: "Project completion", promisedDate: "31 December 2018", actualDate: "31 December 2018", status: "done", photos: [], detail: "The public RERA record lists the proposed completion date as 31 December 2018; property records subsequently list the project as completed." },
+      { stage: "Project completion", promisedDate: "31 December 2018", actualDate: "Completed · date not independently verified", status: "done", photos: [], detail: "The public RERA record lists 31 December 2018 as the proposed completion date; later public project records list the development as completed / ready to move." },
     ],
   },
   {
