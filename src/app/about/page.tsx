@@ -2,13 +2,22 @@ import PhotoPlaceholder from "@/components/PhotoPlaceholder";
 import { company, companySources } from "@/lib/company";
 import { team } from "@/lib/team";
 
-const LOCAL_REFERENCE_IMAGE = "/images/generated/Modern_residential_apartment_bui…_2K_202608151424.jpeg";
+const SOCIAL_PREVIEW = "/opengraph-image";
 
 export const metadata = {
   title: "About",
   description: "Aakar Developers company profile, public credentials, project history, and verification records.",
-  openGraph: { title: "About · Aakar Developers", description: "Aakar Developers company profile, public credentials, project history, and verification records.", images: [{ url: LOCAL_REFERENCE_IMAGE, width: 1200, height: 630, alt: "Aakar Developers residential architecture" }] },
-  twitter: { card: "summary_large_image", title: "About · Aakar Developers", description: "Aakar Developers company profile, public credentials, project history, and verification records.", images: [LOCAL_REFERENCE_IMAGE] },
+  openGraph: {
+    title: "About · Aakar Developers",
+    description: "Aakar Developers company profile, public credentials, project history, and verification records.",
+    images: [{ url: SOCIAL_PREVIEW, width: 1200, height: 630, alt: "Aakar Developers · Built on trust. Delivered with proof." }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About · Aakar Developers",
+    description: "Aakar Developers company profile, public credentials, project history, and verification records.",
+    images: [SOCIAL_PREVIEW],
+  },
 };
 
 export default function AboutPage() {
