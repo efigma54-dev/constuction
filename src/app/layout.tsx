@@ -7,7 +7,7 @@ import SiteHeader from "@/components/SiteHeader";
 import StickyInquiryRail from "@/components/StickyInquiryRail";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://constuction-eosin.vercel.app";
-const featuredProjectImage = "/images/generated/Modern_residential_apartment_bui…_2K_202608151424.jpeg";
+const socialPreview = "/opengraph-image";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -25,8 +25,10 @@ export const metadata: Metadata = {
       "Aakar Developers, Pune. Explore publicly documented project records, construction history, and verification material before you book.",
     images: [
       {
-        url: featuredProjectImage,
-        alt: "Aakar Developers residential architecture",
+        url: socialPreview,
+        width: 1200,
+        height: 630,
+        alt: "Aakar Developers · Built on trust. Delivered with proof.",
       },
     ],
   },
@@ -35,7 +37,7 @@ export const metadata: Metadata = {
     title: "Aakar Developers · Pune",
     description:
       "Aakar Developers, Pune. Explore publicly documented project records, construction history, and verification material before you book.",
-    images: [featuredProjectImage],
+    images: [socialPreview],
   },
 };
 
