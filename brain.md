@@ -1,6 +1,6 @@
 # Aakar Developers Website · Project Memory
 
-_Last verified: 31 August 2026_
+_Last verified: 9 September 2026_
 
 ## Current state
 
@@ -10,9 +10,10 @@ _Last verified: 31 August 2026_
 - Production deployment: Vercel project `construction`
 - Production alias currently used in QA: `https://constuction-eosin.vercel.app`
 - GitHub `main` is connected to Vercel production.
+- A new production deployment is queued after the latest source changes; final live verification remains pending until that deployment is Ready.
 - Local build previously completed successfully with `next build` after rebuilding `sharp` and `unrs-resolver`.
 - npm lifecycle scripts are enabled with `ignore-scripts=false`; `sharp` and `unrs-resolver` are installed and rebuilt successfully.
-- `package.json` now uses the npm install-script allowlist for `sharp` and `unrs-resolver`.
+- `package.json` uses the npm install-script allowlist for `sharp` and `unrs-resolver`.
 
 ## Content / provenance rules
 
@@ -22,6 +23,7 @@ _Last verified: 31 August 2026_
 - Stories are public-source editorial summaries, not fabricated customer testimonials.
 - Named customer stories require consent, usable photography, and supporting project records.
 - Company and project identifiers must remain source-backed. Unknown values use `Verification pending` rather than invented values.
+- A RERA proposed completion date must not be rendered as an independently verified actual completion date.
 
 ## Current published content
 
@@ -29,7 +31,8 @@ _Last verified: 31 August 2026_
 - Project-card visuals are local architectural reference assets and are labelled as such.
 - Stories page contains seven editorial story entries, each available in English, Marathi, Hindi, Gujarati, Bengali, Tamil, and Kannada.
 - Story cards use real photography as illustrative visuals and disclose that status on-card.
-- Balaji Empire has a public RERA record referenced in the site data as `P52100001661` and a declared completion date of 31 December 2018.
+- Balaji Empire has a public RERA record referenced in the site data as `P52100001661`.
+- Balaji Empire's RERA record lists 31 December 2018 as the proposed completion date; the site now distinguishes that from later public records describing the project as completed / ready to move.
 - CIN and unverified contact / office fields use `Verification pending` where primary evidence is not present.
 
 ## Hero / interaction requirements
@@ -42,7 +45,9 @@ _Last verified: 31 August 2026_
 ## Metadata hardening
 
 - The previous homepage OG/Twitter path was visibly truncated and returned 404 in production.
-- File-based `opengraph-image.tsx` and `twitter-image.tsx` now generate local 1200×630 PNG previews, removing the broken long filename dependency and third-party image dependency from social metadata.
+- File-based `opengraph-image.tsx` and `twitter-image.tsx` generate local 1200×630 PNG previews.
+- Root, homepage, and About-page social metadata now points to `/opengraph-image` instead of the broken long generated-image filename.
+- The old selector-based `production-overrides.css` patch layer was removed; homepage behavior now comes from the source component itself.
 
 ## QA gates
 
@@ -55,7 +60,8 @@ _Last verified: 31 August 2026_
 7. Mobile navigation and project grids must not create horizontal overflow.
 8. No blank legal identifier fields may render.
 9. No invented testimonials, customer names, quotations, or project evidence.
-10. After deployment, re-fetch production pages and verify the deployed commit rather than relying only on a local report.
+10. RERA proposed dates must not be presented as actual verified completion dates.
+11. After deployment, re-fetch production pages and verify the deployed commit rather than relying only on a local report.
 
 ## Remaining work policy
 
