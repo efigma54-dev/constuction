@@ -2,6 +2,8 @@ import Link from "next/link";
 import { projects } from "@/lib/projects";
 import PhotoPlaceholder from "@/components/PhotoPlaceholder";
 
+const SOCIAL_PREVIEW = "/opengraph-image";
+
 export const metadata = {
   title: "Projects",
   description:
@@ -10,14 +12,14 @@ export const metadata = {
     title: "Projects · Aakar Developers",
     description:
       "Explore Aakar Developers projects with clear status, published details, and transparent verification notes.",
-    images: ["/posters/hero-tower-poster.svg"],
+    images: [{ url: SOCIAL_PREVIEW, width: 1200, height: 630, alt: "Aakar Developers · Built on trust. Delivered with proof." }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Projects · Aakar Developers",
     description:
       "Explore Aakar Developers projects with clear status, published details, and transparent verification notes.",
-    images: ["/posters/hero-tower-poster.svg"],
+    images: [SOCIAL_PREVIEW],
   },
 };
 
