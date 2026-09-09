@@ -16,10 +16,10 @@ export const metadata = {
       "Explore published project records, construction information, and company documentation.",
     images: [
       {
-        url: "/images/generated/Modern_residential_apartment_bui…_2K_202608151424.jpeg",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Aakar Developers residential architecture reference visual",
+        alt: "Aakar Developers · Built on trust. Delivered with proof.",
       },
     ],
   },
@@ -28,7 +28,7 @@ export const metadata = {
     title: "Aakar Developers · Pune",
     description:
       "Explore published project records, construction information, and company documentation.",
-    images: ["/images/generated/Modern_residential_apartment_bui…_2K_202608151424.jpeg"],
+    images: ["/opengraph-image"],
   },
 };
 
@@ -78,7 +78,7 @@ export default function Home() {
 
           <div className="mt-6 sm:mt-8 p-8 sm:p-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 animate-fade-in-up opacity-0" style={{ animationDelay: "700ms", border: "1px solid var(--hairline)", borderLeft: "2px solid var(--terracotta)", backgroundColor: "rgba(255,255,255,0.4)", borderRadius: "2px" }}>
             <div><h3 className="font-serif text-[1.35rem] text-foreground mb-2">Built around proof.</h3><p className="text-sm text-muted max-w-md leading-relaxed">Explore the records, documents, project information and people behind every published claim.</p></div>
-            <Link href="/transparency" className="group flex items-center gap-3 text-sm font-medium text-foreground transition-colors hover:text-terracotta shrink-0"><span className="flex flex-col text-left sm:text-right"><span className="mb-0.5">Explore transparency</span><span className="text-[0.65rem] text-muted font-normal uppercase tracking-wider group-hover:text-terracotta/70 transition-colors">View project records</span></span><span className="transition-transform group-hover:translate-x-1">→</span></Link>
+            <Link href="/transparency" className="group flex items-center gap-3 text-sm font-medium text-foreground transition-colors hover:text-terracotta"><span className="flex flex-col text-left sm:text-right"><span className="mb-0.5">Explore transparency</span><span className="text-[0.65rem] text-muted font-normal uppercase tracking-wider group-hover:text-terracotta/70 transition-colors">View project records</span></span><span className="transition-transform group-hover:translate-x-1">→</span></Link>
           </div>
         </div>
       </section>
@@ -133,7 +133,7 @@ export default function Home() {
       <section className="bg-background py-24 sm:py-32" style={{ borderTop: "1px solid var(--hairline)" }}>
         <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
           <div className="page-header-split"><div><div className="text-xs font-semibold uppercase tracking-widest text-terracotta">Stories</div><h2 className="mt-3 font-serif text-foreground" style={{ fontSize: "var(--text-section)", lineHeight: "1.05" }}>Buyer stories</h2></div><Link href="/stories" className="btn-secondary">Read all stories</Link></div>
-          {featuredStories.length > 0 ? <div className="mt-12 grid gap-0 md:grid-cols-3">{featuredStories.map((story) => <article key={story.slug} className="p-6 min-w-0" style={{ border: "1px solid var(--hairline)" }}><PhotoPlaceholder type="portrait" label={story.name} caption="Published story visual" aspectRatio="video" src={story.image} /><div className="mt-6 text-xs uppercase tracking-widest text-terracotta">{story.location}</div><h3 className="mt-2 font-serif text-xl text-foreground">{story.title}</h3><p className="mt-3 text-sm leading-6 text-muted">{story.excerpt}</p><Link href={`/stories/${story.slug}`} className="btn-secondary mt-5">Read story</Link></article>)}</div> : <div className="mt-12 border border-[var(--hairline)] bg-surface p-8 sm:p-10"><div className="text-xs font-semibold uppercase tracking-[0.16em] text-terracotta">Stories on hold</div><h3 className="mt-3 font-serif text-2xl text-foreground">Client evidence is being held until publication requirements are met.</h3><p className="mt-3 max-w-2xl text-sm leading-6 text-muted">No customer story is currently published. Names, photographs, quotations, and project details will appear only after the required consent and supporting records are available.</p><Link href="/stories" className="btn-secondary mt-6">See story standards</Link></div>}
+          {featuredStories.length > 0 ? <div className="mt-12 grid gap-0 md:grid-cols-3">{featuredStories.map((story) => <article key={story.slug} className="p-6 min-w-0" style={{ border: "1px solid var(--hairline)" }}><PhotoPlaceholder type="portrait" label={story.name} caption="Published story visual · illustration only" aspectRatio="video" src={story.image} /><div className="mt-6 text-xs uppercase tracking-widest text-terracotta">{story.location}</div><h3 className="mt-2 font-serif text-xl text-foreground">{story.title}</h3><p className="mt-3 text-sm leading-6 text-muted">{story.excerpt}</p><Link href={`/stories/${story.slug}`} className="btn-secondary mt-5">Read story</Link></article>)}</div> : <div className="mt-12 border border-[var(--hairline)] bg-surface p-8 sm:p-10"><div className="text-xs uppercase tracking-[0.16em] text-terracotta">Stories on hold</div><h3 className="mt-3 font-serif text-2xl text-foreground">Client evidence is being held until publication requirements are met.</h3><p className="mt-3 max-w-2xl text-sm leading-6 text-muted">No customer story is currently published. Names, photographs, quotations, and project details will appear only after the required consent and supporting records are available.</p><Link href="/stories" className="btn-secondary mt-6">See story standards</Link></div>}
         </div>
       </section>
     </main>
