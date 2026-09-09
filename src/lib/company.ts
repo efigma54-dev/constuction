@@ -13,7 +13,7 @@ export const company = {
   establishedYear: 2010,
   gstRegistrationDate: "01 July 2017",
   principalPlaceOfBusiness: "Flat No. 9, Fourth Floor, Paud Road, Kothrud, Pune, Maharashtra 411038",
-  publicPortfolioCount: 4,
+  publicPortfolioCount: 1,
   identifiers: {
     gstin: "27AAPFA6311D1ZP",
     rera: "P52100001661",

@@ -7,18 +7,18 @@ const socialImage = "/images/generated/Modern_residential_apartment_bui…_2K_20
 export const metadata = {
   title: "Stories",
   description:
-    "Public-source stories from Aakar Developers projects, presented with source context, real illustrative photography, and multilingual editions.",
+    "Public-source notes from the verified Balaji Empire record, presented with source context and multilingual editions.",
   openGraph: {
     title: "Stories · Aakar Developers",
     description:
-      "Public-source project stories with source context and multilingual editions.",
+      "Public-source notes with source context and multilingual editions.",
     images: [socialImage],
   },
   twitter: {
     card: "summary_large_image",
     title: "Stories · Aakar Developers",
     description:
-      "Public-source project stories with source context and multilingual editions.",
+      "Public-source notes with source context and multilingual editions.",
     images: [socialImage],
   },
 };
@@ -28,12 +28,12 @@ export default function StoriesPage() {
     <main className="flex-1 bg-background">
       <div className="bg-surface" style={{ borderBottom: "1px solid var(--hairline)" }}>
         <div className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-terracotta">Customer evidence</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-terracotta">Public-source notes</p>
           <h1 className="mt-4 font-serif text-foreground" style={{ fontSize: "var(--text-section)", lineHeight: "1.05", letterSpacing: "-0.025em" }}>
             Stories
           </h1>
           <p className="mt-5 text-base leading-7 text-muted" style={{ maxWidth: "var(--max-prose)" }}>
-            Seven language editions of public-source project stories. We separate sourced observations from client testimonials, and we never present an illustrative photograph as a customer or project photograph.
+            Seven language editions of public-source notes for the verified Balaji Empire record. We separate sourced observations from client testimonials, and we never present an illustrative photograph as a customer or project photograph.
           </p>
         </div>
       </div>
