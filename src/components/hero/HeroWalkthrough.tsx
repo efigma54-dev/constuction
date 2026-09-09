@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useSyncExternalStore } from "react";
 import type { ReactNode } from "react";
 
@@ -49,25 +50,25 @@ export default function HeroWalkthrough({
     >
       <div className="sticky top-0 relative h-screen w-full overflow-hidden">
         {shots.map((shot) => (
-          <div
-            key={shot.label}
-            className="absolute inset-0"
-            style={{
-              zIndex: 0,
-              backgroundImage: `url(${shot.posterSrc})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-            aria-hidden="true"
-          >
-            {!reducedMotion && (shot.mp4Src || shot.webmSrc) ? (
+          <div key={shot.label} className="absolute inset-0 z-0 overflow-hidden">
+            {reducedMotion || (!shot.mp4Src && !shot.webmSrc) ? (
+              <Image
+                src={shot.posterSrc}
+                alt=""
+                fill
+                priority
+                sizes="100vw"
+                className="object-cover"
+                aria-hidden="true"
+              />
+            ) : (
               <video
                 className="absolute inset-0 h-full w-full object-cover"
                 autoPlay
                 loop
                 muted
                 playsInline
-                preload="metadata"
+                preload="auto"
                 poster={shot.posterSrc}
                 aria-hidden="true"
               >
@@ -76,7 +77,7 @@ export default function HeroWalkthrough({
                 ) : null}
                 {shot.mp4Src ? <source src={shot.mp4Src} type="video/mp4" /> : null}
               </video>
-            ) : null}
+            )}
           </div>
         ))}
 
