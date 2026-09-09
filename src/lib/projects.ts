@@ -45,9 +45,6 @@ export type Project = {
 
 const premiumVisuals = {
   empire: "/images/generated/balaji-empire-premium.svg",
-  square: "/images/generated/balaji-square-premium.svg",
-  corner: "/images/generated/dangat-corner-premium.svg",
-  residency: "/images/generated/balaji-residency-premium.svg",
 };
 
 export const projects: Project[] = [
@@ -83,21 +80,6 @@ export const projects: Project[] = [
       { stage: "RERA registration", promisedDate: "29 July 2017", actualDate: "29 July 2017", status: "done", photos: [], detail: "Public RERA records list the project registration date as 29 July 2017." },
       { stage: "Project completion", promisedDate: "31 December 2018", actualDate: "Completed · date not independently verified", status: "done", photos: [], detail: "The public RERA record lists 31 December 2018 as the proposed completion date; later public project records list the development as completed / ready to move." },
     ],
-  },
-  {
-    slug: "balaji-square", name: "Balaji Square", location: "Ravet, Pimpri-Chinchwad, Pune, Maharashtra", description: "A completed AAKAR DEVELOPERS project identified in the promoter's publicly available past-experience record associated with Balaji Empire.", highlights: ["Completed project", "Ravet", "Promoter past-experience record"], status: "completed", handover: "Completed · date not independently verified", priceBand: "Not published", rera: "Not independently verified", heroImage: premiumVisuals.square,
-    galleryImages: [premiumVisuals.square],
-    proof: { existence: ["Listed as promoter past experience in the Balaji Empire record"], delivery: ["Status recorded as completed"], legitimacy: ["Promoter: AAKAR DEVELOPERS"], transparency: ["Detailed project registration record not yet attached"], people: [] }, floorPlan: { title: "Floor plan pending source record", image: null, units: [] }, milestones: [],
-  },
-  {
-    slug: "dangat-corner", name: "Dangat Corner", location: "Ravet, Pimpri-Chinchwad, Pune, Maharashtra", description: "A completed AAKAR DEVELOPERS project identified in the promoter's publicly available past-experience record associated with Balaji Empire.", highlights: ["Completed project", "Ravet", "Promoter past-experience record"], status: "completed", handover: "Completed · date not independently verified", priceBand: "Not published", rera: "Not independently verified", heroImage: premiumVisuals.corner,
-    galleryImages: [premiumVisuals.corner],
-    proof: { existence: ["Listed as promoter past experience in the Balaji Empire record"], delivery: ["Status recorded as completed"], legitimacy: ["Promoter: AAKAR DEVELOPERS"], transparency: ["Detailed project registration record not yet attached"], people: [] }, floorPlan: { title: "Floor plan pending source record", image: null, units: [] }, milestones: [],
-  },
-  {
-    slug: "balaji-residency", name: "Balaji Residency", location: "Kiwale, Pimpri-Chinchwad, Pune, Maharashtra", description: "A completed AAKAR DEVELOPERS project identified in the promoter's publicly available past-experience record associated with Balaji Empire.", highlights: ["Completed project", "Kiwale", "Promoter past-experience record"], status: "completed", handover: "Completed · date not independently verified", priceBand: "Not published", rera: "Not independently verified", heroImage: premiumVisuals.residency,
-    galleryImages: [premiumVisuals.residency],
-    proof: { existence: ["Listed as promoter past experience in the Balaji Empire record"], delivery: ["Status recorded as completed"], legitimacy: ["Promoter: AAKAR DEVELOPERS"], transparency: ["Detailed project registration record not yet attached"], people: [] }, floorPlan: { title: "Floor plan pending source record", image: null, units: [] }, milestones: [],
   },
 ];
 
