@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import type { Story, StoryLanguage } from "@/lib/stories";
+import PhotoPlaceholder from "@/components/PhotoPlaceholder";
 
 const languages: { key: StoryLanguage; label: string; native: string }[] = [
   { key: "en", label: "English", native: "English" },
@@ -64,21 +64,15 @@ export default function StoriesShowcase({ stories, limit, compact = false }: Pro
               className="group flex min-w-0 flex-col border border-[var(--hairline)] bg-background p-5 transition-colors duration-300 hover:bg-surface sm:p-6"
               style={{ marginLeft: index % 3 !== 0 ? "-1px" : undefined, marginTop: index >= 3 ? "-1px" : undefined }}
             >
-              <Link href={`/stories/${story.slug}`} className="block overflow-hidden border border-[var(--hairline)]">
-                {story.image ? (
-                  <div className="relative aspect-[16/10] overflow-hidden">
-                    <Image
-                      src={story.image}
-                      alt={story.photoAlt ?? copy.headline}
-                      fill
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                    />
-                    <div className="absolute inset-x-0 bottom-0 bg-black/65 px-3 py-2 text-[9px] font-semibold uppercase tracking-[0.12em] text-white">
-                      Real photograph · illustrative visual
-                    </div>
-                  </div>
-                ) : null}
+              <Link href={`/stories/${story.slug}`} className="block overflow-hidden">
+                <PhotoPlaceholder
+                  type="portrait"
+                  label="Illustrative visual · not a project photograph"
+                  caption="Illustrative visual · not construction evidence"
+                  aspectRatio="video"
+                  src={story.image}
+                  className="transition-transform duration-700 ease-out group-hover:scale-[1.01]"
+                />
               </Link>
 
               <div className="mt-5 flex items-center justify-between gap-4 text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-terracotta">
