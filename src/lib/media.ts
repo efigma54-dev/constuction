@@ -42,21 +42,13 @@ export const media: MediaItem[] = [
     sourceLabel: "Architectural visualization · not project evidence",
   },
   {
-    src: "/images/real/aakar-heights-reference.jpg",
-    alt: "Architectural reference image for Aakar Heights",
-    title: "Aakar Heights architectural reference",
-    category: "hero",
-    projectId: "aakar-heights-baner",
-    verified: false,
-    sourceType: "architectural-visualization",
-  },
-  {
     src: "/images/real/construction-reference.jpg",
     alt: "Editorial construction reference image",
     title: "Construction reference",
     category: "construction",
     verified: false,
     sourceType: "editorial",
+    sourceLabel: "Editorial reference · not project evidence",
   },
 ];
 
