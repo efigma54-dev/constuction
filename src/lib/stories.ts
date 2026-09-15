@@ -28,8 +28,18 @@ const record: Record<StoryLanguage, StoryTranslation> = {
   ta: { headline: "பொது பதிவு தெளிவான தகவலை வழங்குகிறது", summary: "MahaRERA பதிவுகள் BALAJI EMPIRE திட்டத்தை AAKAR DEVELOPERS முன்னெடுத்த குடியிருப்பு திட்டமாகக் குறிப்பிடுகின்றன. பதிவு எண் P52100001661; அறிவிக்கப்பட்ட நிறைவு தேதி 31 டிசம்பர் 2018." },
   kn: { headline: "ಸಾರ್ವಜನಿಕ ದಾಖಲೆ ಹೆಚ್ಚು ಸ್ಪಷ್ಟವಾದ ಮಾಹಿತಿಯನ್ನು ನೀಡುತ್ತದೆ", summary: "MahaRERA ದಾಖಲೆಗಳು BALAJI EMPIRE ಅನ್ನು AAKAR DEVELOPERS ಪ್ರವರ್ತಿಸಿದ ವಸತಿ ಯೋಜನೆಯಾಗಿ ದಾಖಲಿಸುತ್ತವೆ. ನೋಂದಣಿ ಸಂಖ್ಯೆ P52100001661 ಮತ್ತು ಘೋಷಿತ ಪೂರ್ಣಗೊಳ್ಳುವ ದಿನಾಂಕ 31 ಡಿಸೆಂಬರ್ 2018." },
 };
-export const stories: Story[] = [
+
+const storyRecords: Story[] = [
   { slug: "balaji-empire-public-review", name: "Public review synthesis", project: "Balaji Empire", unit: "Vikas Nagar", headline: review.en.headline, summary: review.en.summary, proof: ["Housing.com resident review", "Public project listing"], location: "Vikas Nagar, Dehu Road, Pune, Maharashtra", kind: "public-source", sourceLabel: "Public review synthesis · Housing.com", sourceUrl: "https://housing.com/in/buy/projects/page/117415-aakar-balaji-empire-by-aakar-developers-in-vikas-nagar", translations: review },
   { slug: "balaji-empire-public-record", name: "Public record story", project: "Balaji Empire", unit: "Vikas Nagar", headline: record.en.headline, summary: record.en.summary, proof: ["MahaRERA registration P52100001661", "Promoter AAKAR DEVELOPERS", "Declared completion: 31 December 2018"], location: "Vikas Nagar, Dehu Road, Pune, Maharashtra", kind: "public-source", sourceLabel: "MahaRERA public record", sourceUrl: "https://www.aurumproptech.in/pulse/rera/maharashtra/pune/balaji-empire-P52100001661", translations: record },
 ];
+
+// Keep the published story entries unchanged while exposing compatibility aliases
+// for older presentation components that still read title/excerpt.
+export const stories: Story[] = storyRecords.map((story) => ({
+  ...story,
+  title: story.headline,
+  excerpt: story.summary,
+}));
+
 export function getStory(slug: string): Story | undefined { return stories.find((story) => story.slug === slug); }
