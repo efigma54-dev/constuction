@@ -34,8 +34,7 @@ export const metadata = {
 
 export default function Home() {
   const featured = projects[0] ?? null;
-  const active = projects.filter((p) => p.status === "under_construction");
-  const publishedProgress = active.filter((p) => p.milestones.length > 0);
+  const publishedProgress = projects.filter((p) => p.milestones.length > 0);
   const featuredStories = stories.slice(0, 3);
   const publishedProjectCount = projects.length;
 
@@ -69,7 +68,7 @@ export default function Home() {
                 </div>
                 <div className="sm:w-48 shrink-0 mt-6 sm:mt-0 flex flex-col transition-opacity duration-300 sm:opacity-70 sm:group-hover:opacity-100 w-full">
                   <div className="mb-5 w-full h-24"><PhotoPlaceholder type={p.thumbnailType as "building" | "document" | "portrait"} label={p.evidence} className="w-full h-full" aspectRatio="auto" src={p.image} /></div>
-                  <div className="text-[0.6rem] font-semibold tracking-widest uppercase mb-1.5" style={{ color: "var(--terracotta)" }}>Evidence</div>
+                  <div className="text-[0.6rem] font-semibold tracking-widest uppercase mb-1.5" style={{ color: "var(--terracotta)" }}>Record context</div>
                   <div className="text-[0.75rem] text-muted leading-tight" style={{ borderTop: "1px solid var(--hairline)", paddingTop: "0.5rem" }}>{p.evidence}</div>
                 </div>
               </div>
@@ -87,17 +86,20 @@ export default function Home() {
         <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
           <h2 className="font-serif animate-fade-in-up opacity-0" style={{ fontSize: "var(--text-section)", lineHeight: "1.05", letterSpacing: "-0.03em", color: "var(--sand)" }}>Proof, not promises.</h2>
           <p className="mt-6 text-lg leading-relaxed animate-fade-in-up opacity-0 prose-constrained" style={{ color: "var(--charcoal-muted)", animationDelay: "80ms" }}>Dated site photos, filings, milestone timelines, and handover records are published here as they are verified.</p>
-          <div className="mt-16 grid grid-cols-3 animate-fade-in-up opacity-0" style={{ animationDelay: "160ms", borderTop: "1px solid rgba(200, 189, 179, 0.15)" }}>
+          <div className="mt-14 grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4 animate-fade-in-up opacity-0" style={{ animationDelay: "160ms" }}>
             {[
-              { label: "Established", value: "2010" },
-              { label: "Published project records", value: String(publishedProjectCount) },
-              { label: "RERA-registered project", value: "1" },
-            ].map((s, i) => (
-              <div key={s.label} className="pt-8 pr-8" style={{ borderRight: i < 2 ? "1px solid rgba(200, 189, 179, 0.1)" : "none" }}>
-                <div className="font-serif" style={{ fontSize: "clamp(2rem, 4.5vw, 4rem)", lineHeight: "1", letterSpacing: "-0.02em", color: "var(--sand)" }}>{s.value}</div>
-                <div className="mt-2 text-xs uppercase tracking-widest" style={{ color: "var(--charcoal-muted)" }}>{s.label}</div>
+              { label: "Published project records", value: String(publishedProjectCount), detail: "Currently published" },
+              { label: "Public-source notes", value: String(featuredStories.length), detail: "Currently published" },
+              { label: "Construction timeline", value: publishedProgress.length > 0 ? String(publishedProgress.length) : "Pending", detail: publishedProgress.length > 0 ? "Milestones published" : "Primary records pending" },
+              { label: "Project photography", value: "Pending", detail: "Verified site media not yet published" },
+            ].map((s) => (
+              <div key={s.label} className="min-h-36 bg-charcoal px-6 py-7 sm:px-7">
+                <div className="text-[0.62rem] font-semibold uppercase tracking-[0.16em]" style={{ color: "var(--terracotta)" }}>{s.label}</div>
+                <div className="mt-4 font-serif" style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)", lineHeight: "1", color: "var(--sand)" }}>{s.value}</div>
+                <div className="mt-3 text-xs leading-5" style={{ color: "var(--charcoal-muted)" }}>{s.detail}</div>
               </div>
             ))}
+          </div>
           </div>
         </div>
       </section>
@@ -106,9 +108,9 @@ export default function Home() {
         <div className="mx-auto w-full max-w-6xl animate-fade-in-up opacity-0" style={{ borderBottom: "1px solid var(--hairline)" }}>
           <div className="grid md:grid-cols-[55%_45%]">
             <div className="relative min-h-80 md:min-h-130 overflow-hidden flex flex-col justify-end">
-              <PhotoPlaceholder type="building" label={featured ? `${featured.name} · architectural reference visual` : "Featured project · architectural reference visual"} aspectRatio="auto" className="absolute inset-0 h-full w-full border-none!" src={featured?.heroImage ?? undefined} />
+              <PhotoPlaceholder type="building" label={featured ? `${featured.name} · architectural reference visual` : "Featured project · architectural reference visual"} caption="Architectural reference visual · not a project photograph" aspectRatio="auto" className="absolute inset-0 h-full w-full border-none!" src={featured?.heroImage ?? undefined} />
               <div className="absolute bottom-0 left-0 z-10" style={{ background: "var(--terracotta)", color: "#fff", fontSize: "0.65rem", fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", padding: "0.5rem 1rem" }}>
-                {featured?.status === "completed" ? "Completed · public record" : "Project record"}
+                Published record · reference visual
               </div>
             </div>
             <div className="flex flex-col justify-center px-8 py-16 md:px-12 md:py-0">
@@ -125,7 +127,7 @@ export default function Home() {
         <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
           <div className="grid gap-16 lg:grid-cols-2 lg:items-start animate-fade-in-up opacity-0">
             <div><h2 className="font-serif text-foreground" style={{ fontSize: "var(--text-section)", lineHeight: "1.05", letterSpacing: "-0.025em" }}>Construction progress</h2><p className="mt-6 text-lg leading-relaxed text-muted prose-constrained">Promised vs actual dates, milestone by milestone. Dated site photos are published beside each stage when supporting records are available.</p><div className="mt-10 flex flex-col sm:flex-row gap-5"><Link href="/construction-progress" className="btn-primary">View progress</Link><Link href="/contact" className="btn-secondary">Ask a question</Link></div></div>
-            <div className="space-y-0">{publishedProgress.length > 0 ? publishedProgress.slice(0, 2).map((p) => <div key={p.slug} className="pb-10 mb-10" style={{ borderBottom: "1px solid var(--hairline)" }}><div className="text-xs uppercase tracking-widest text-terracotta">{p.name}</div><div className="mt-3 text-sm text-muted">{p.milestones.length} published milestones</div></div>) : <div className="p-8 sm:p-10" style={{ border: "1px solid var(--hairline)", borderLeft: "2px solid var(--terracotta)", background: "rgba(255,255,255,0.35)" }}><div className="text-xs font-semibold uppercase tracking-widest text-terracotta"><PendingVerificationPulse>Timeline pending publication</PendingVerificationPulse></div><h3 className="mt-3 font-serif text-xl text-foreground">No active construction timeline is published yet.</h3><p className="mt-3 text-sm leading-6 text-muted">We keep this section empty rather than inventing dates, percentages, photographs, or progress claims. Verified milestone records will appear here once available.</p><Link href="/construction-progress" className="btn-secondary mt-6">See construction records</Link></div>}</div>
+            <div className="space-y-0">{publishedProgress.length > 0 ? publishedProgress.slice(0, 2).map((p) => <div key={p.slug} className="pb-8 mb-8" style={{ borderBottom: "1px solid var(--hairline)" }}><div className="flex items-center justify-between gap-4"><div className="text-xs uppercase tracking-widest text-terracotta">{p.name}</div><div className="text-[0.62rem] font-semibold uppercase tracking-[0.12em] text-muted">Published record</div></div><div className="mt-3 text-sm text-muted">{p.milestones.length} published milestones</div><Link href={`/projects/${p.slug}`} className="mt-4 inline-flex text-xs font-semibold uppercase tracking-[0.1em] text-foreground transition-colors hover:text-terracotta">Review project record →</Link></div>) : <div className="p-8 sm:p-10" style={{ border: "1px solid var(--hairline)", borderLeft: "2px solid var(--terracotta)", background: "rgba(255,255,255,0.35)" }}><div className="text-xs font-semibold uppercase tracking-widest text-terracotta"><PendingVerificationPulse>Timeline pending publication</PendingVerificationPulse></div><h3 className="mt-3 font-serif text-xl text-foreground">No published construction timeline is available yet.</h3><p className="mt-3 text-sm leading-6 text-muted">We keep this section factual rather than inventing dates, percentages, photographs, or progress claims. Verified milestone records will appear here once available.</p><Link href="/construction-progress" className="btn-secondary mt-6">See construction records</Link></div>}</div>
           </div>
         </div>
       </section>
@@ -133,7 +135,7 @@ export default function Home() {
       <section className="bg-background py-24 sm:py-32" style={{ borderTop: "1px solid var(--hairline)" }}>
         <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
           <div className="page-header-split"><div><div className="text-xs font-semibold uppercase tracking-widest text-terracotta">Public-source notes</div><h2 className="mt-3 font-serif text-foreground" style={{ fontSize: "var(--text-section)", lineHeight: "1.05" }}>Project notes</h2></div><Link href="/stories" className="btn-secondary">Read all notes</Link></div>
-          {featuredStories.length > 0 ? <div className="mt-12 grid gap-0 md:grid-cols-3">{featuredStories.map((story) => <article key={story.slug} className="p-6 min-w-0" style={{ border: "1px solid var(--hairline)" }}><PhotoPlaceholder type="portrait" label={story.name} caption="Published note visual · illustration only" aspectRatio="video" src={story.image} /><div className="mt-6 text-xs uppercase tracking-widest text-terracotta">{story.location}</div><h3 className="mt-2 font-serif text-xl text-foreground">{story.title}</h3><p className="mt-3 text-sm leading-6 text-muted">{story.excerpt}</p><Link href={`/stories/${story.slug}`} className="btn-secondary mt-5">Read note</Link></article>)}</div> : <div className="mt-12 border border-[var(--hairline)] bg-surface p-8 sm:p-10"><div className="text-xs uppercase tracking-[0.16em] text-terracotta">Notes on hold</div><h3 className="mt-3 font-serif text-2xl text-foreground">Client evidence is being held until publication requirements are met.</h3><p className="mt-3 max-w-2xl text-sm leading-6 text-muted">No customer story is currently published. Names, photographs, quotations, and project details will appear only after the required consent and supporting records are available.</p><Link href="/stories" className="btn-secondary mt-6">See story standards</Link></div>}
+          {featuredStories.length > 0 ? <div className="mt-12 max-w-5xl grid gap-0 md:grid-cols-2">{featuredStories.map((story) => <article key={story.slug} className="group flex min-w-0 flex-col p-6 sm:p-7 transition-colors duration-300 hover:bg-surface" style={{ border: "1px solid var(--hairline)" }}><PhotoPlaceholder type="portrait" label={story.name} caption="Illustrative visual · source media not published" aspectRatio="video" src={story.image} className="transition-transform duration-700 ease-out group-hover:scale-[1.01]" /><div className="mt-6 flex items-center justify-between gap-4 text-xs uppercase tracking-widest text-terracotta"><span>{story.location}</span><span>Public source</span></div><h3 className="mt-3 font-serif text-xl leading-tight text-foreground sm:text-2xl">{story.headline}</h3><p className="mt-3 flex-1 text-sm leading-6 text-muted">{story.summary}</p><Link href={`/stories/${story.slug}`} className="btn-secondary mt-6 self-start">Read note</Link></article>)}</div> : <div className="mt-12 border border-[var(--hairline)] bg-surface p-8 sm:p-10"><div className="text-xs uppercase tracking-[0.16em] text-terracotta">Notes on hold</div><h3 className="mt-3 font-serif text-2xl text-foreground">Client evidence is being held until publication requirements are met.</h3><p className="mt-3 max-w-2xl text-sm leading-6 text-muted">No customer story is currently published. Names, photographs, quotations, and project details will appear only after the required consent and supporting records are available.</p><Link href="/stories" className="btn-secondary mt-6">See story standards</Link></div>}
         </div>
       </section>
     </main>
