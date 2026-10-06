@@ -155,9 +155,6 @@ body {
 .prose-constrained { max-width: var(--max-prose); }
 .section-charcoal { background: var(--charcoal); color: var(--charcoal-text); }
 
-/* Unsupported historical homepage metrics are intentionally removed from the rendered experience. */
-.section-charcoal .grid.grid-cols-3 { display: none; }
-
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity var(--duration-reveal) var(--ease-editorial), transform var(--duration-reveal) var(--ease-editorial); }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
 .shot-indicator { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.6); background: rgba(0,0,0,0.35); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.1); padding: 0.375rem 0.875rem; }
