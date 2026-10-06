@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { projects } from "@/lib/projects";
+import { company } from "@/lib/company";
 import HeroWalkthrough from "./HeroWalkthrough";
 
 const localArchitecturalVisual =
@@ -34,7 +35,7 @@ export default function Hero() {
             </div>
             <div className="mt-14 grid grid-cols-2 gap-y-8 sm:grid-cols-4 animate-fade-in-up" style={{ animationDelay: "340ms", borderTop: "1px solid rgba(255,255,255,0.1)" }}>
               {stats.map((s, i) => (
-                <div key={s.label} className="pt-6 pr-0 sm:pr-6" style={{ borderRight: i < 3 ? "1px solid rgba(255,255,255,0.07)" : "none" }}>
+                <div key={s.label} className="hero-stat-cell pt-6 pr-0 sm:pr-6">
                   <div className="stat-drama" style={{ color: "#fff" }}>{s.value}</div>
                   <div className="stat-drama-label" style={{ color: "rgba(213,200,181,0.55)" }}>{s.label}</div>
                 </div>
@@ -50,9 +51,11 @@ export default function Hero() {
   );
 }
 
+const publishedMilestoneCount = projects.reduce((total, project) => total + project.milestones.length, 0);
+
 const stats = [
-  { label: "Established", value: "2010" },
+  { label: "Established", value: String(company.establishedYear) },
   { label: "Published project records", value: String(projects.length) },
-  { label: "RERA-registered project", value: "1" },
-  { label: "GST since", value: "2017" },
+  { label: "Published milestones", value: String(publishedMilestoneCount) },
+  { label: "GST registered", value: company.gstRegistrationDate.slice(-4) },
 ];
