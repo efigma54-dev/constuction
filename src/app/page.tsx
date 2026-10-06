@@ -35,6 +35,7 @@ export const metadata = {
 export default function Home() {
   const featured = projects[0] ?? null;
   const publishedProgress = projects.filter((p) => p.milestones.length > 0);
+  const publishedMilestoneCount = publishedProgress.reduce((total, project) => total + project.milestones.length, 0);
   const featuredStories = stories.slice(0, 3);
   const publishedProjectCount = projects.length;
 
@@ -67,7 +68,7 @@ export default function Home() {
                   <p className="mt-3 text-sm leading-relaxed text-muted prose-constrained max-w-lg">{p.body}</p>
                 </div>
                 <div className="sm:w-48 shrink-0 mt-6 sm:mt-0 flex flex-col transition-opacity duration-300 sm:opacity-70 sm:group-hover:opacity-100 w-full">
-                  <div className="mb-5 w-full h-24"><PhotoPlaceholder type={p.thumbnailType as "building" | "document" | "portrait"} label={p.evidence} className="w-full h-full" aspectRatio="auto" src={p.image} /></div>
+                  <div className="mb-5 w-full h-24"><PhotoPlaceholder type={p.thumbnailType as "building" | "document" | "portrait"} label={p.evidence} caption="Illustrative visual · not a source document" className="w-full h-full" aspectRatio="auto" src={p.image} /></div>
                   <div className="text-[0.6rem] font-semibold tracking-widest uppercase mb-1.5" style={{ color: "var(--terracotta)" }}>Record context</div>
                   <div className="text-[0.75rem] text-muted leading-tight" style={{ borderTop: "1px solid var(--hairline)", paddingTop: "0.5rem" }}>{p.evidence}</div>
                 </div>
@@ -90,7 +91,7 @@ export default function Home() {
             {[
               { label: "Published project records", value: String(publishedProjectCount), detail: "Currently published" },
               { label: "Public-source notes", value: String(featuredStories.length), detail: "Currently published" },
-              { label: "Construction timeline", value: publishedProgress.length > 0 ? String(publishedProgress.length) : "Pending", detail: publishedProgress.length > 0 ? "Milestones published" : "Primary records pending" },
+              { label: "Published milestones", value: publishedMilestoneCount > 0 ? String(publishedMilestoneCount) : "Pending", detail: publishedMilestoneCount > 0 ? "Across published project records" : "Primary records pending" },
               { label: "Project photography", value: "Pending", detail: "Verified site media not yet published" },
             ].map((s) => (
               <div key={s.label} className="min-h-36 bg-charcoal px-6 py-7 sm:px-7">
